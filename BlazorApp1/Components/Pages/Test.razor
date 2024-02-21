@@ -1,0 +1,33 @@
+
+@page "/"
+
+@code{
+    public class User
+    {
+        public string username;
+        public string password;
+    }
+}
+@{ 
+
+    string json2=System.IO.File.ReadAllText("wwwroot/config_bestand_simualtie_in_json.json");
+    string json = System.IO.File.ReadAllText("wwwroot/test.json");
+    User mahan = Newtonsoft.Json.JsonConvert.DeserializeObject<User>(json);
+    EmmaSysteem emmaSysteem= Newtonsoft.Json.JsonConvert.DeserializeObject<EmmaSysteem>(json2);
+        
+
+
+<body>
+    <h1> test: @emmaSysteem.installation.assets</h1>
+    <h1>Usernsme: @mahan.username</h1>
+    <h1> password : @mahan.password</h1>
+
+    @foreach (var asset in emmaSysteem.installation.assets)
+    {
+        <h2>@asset.Value</h2>
+        
+    }
+
+   
+</body>
+}

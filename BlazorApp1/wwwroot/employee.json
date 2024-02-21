@@ -1,0 +1,10 @@
+{
+    "installation": {
+      "type": "DLLInstallatie",
+      "init": {
+        "name": "De Lage Landen",
+        "t0": "2023-01-01T00:00"
+      }
+
+    }
+}
