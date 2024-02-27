@@ -13,34 +13,38 @@
       "name": "De Lage Landen",
       "t0": "2023-01-01T00:00"
     },
-    "assets": {
-      "emma_plc": {
+    "assets": [
+    {
+     
         "type": "EmmaPlc",
         "init": {
           "name": "EMMA PLC",
           "t0": "2023-01-01T00:00"
         },
         "inputs": {
+          "components":{
           "input_outside_temperature": "outside_temperature.output_temperature",
           "input_grid_connection": "grid_connection.output_power",
           "input_office_temperature": "office_heat.output_office_temperature"
+
+          }
         }
       },
-      "outside_temperature": {
+       {
         "type": "EindhovenOutsideThermometer",
         "init": {
           "name": "Buitentemperatuur",
           "t0": "2023-01-01T00:00"
         }
       },
-      "solar_radiation": {
+      {
         "type": "EindhovenRadiationSensor",
         "init": {
           "name": "Zoninstraling",
           "t0": "2023-01-01T00:00"
         }
       },
-      "office_electricity": {
+       {
         "type": "OfficeElectricityUsageSimulation",
         "init": {
           "name": "Kantoren Elektra",
@@ -51,20 +55,26 @@
           }
         }
       },
-      "office_heat": {
+      {
         "type": "BuildingRCModel",
         "init": {
           "name": "Kantoren Warmte",
           "t0": "2023-01-01T00:00",
-          "max_heating_power": 2115,
-          "solar_surface_m2": 0,
-          "tau": 360000,
-          "inside_temperature": 19
+          "components": {
+            "max_heating_power": 2115,
+            "solar_surface_m2": 0,
+            "tau": 360000,
+            "inside_temperature": 19
+          }
+          
         },
         "inputs": {
-          "input_outside_temp": "outside_temperature.output_temperature",
-          "input_solar": "solar_radiation.output_radiation",
-          "input_heat": "total_heat_production.output_heat"
+          "components":{
+            "input_outside_temp": "outside_temperature.output_temperature",
+            "input_solar": "solar_radiation.output_radiation",
+            "input_heat": "total_heat_production.output_heat"
+          }
+          
         },
         "outputs": {
           "output_office_temperature": {
@@ -72,43 +82,59 @@
           }
         }
       },
-      "heatpump1": {
+       {
         "type": "CiatHeatpump",
         "init": {
           "name": "Warmtepomp1",
           "rated_power_in_kw": 235,
-          "t0": "2023-01-01T00:00"
+          "t0": "2023-01-01T00:00",
+          "components":{          
+            "rated_power_in_kw": 235
+        }
         },
         "inputs": {
-          "input_tick_setpoint": "emma_plc.output_tick_heatpump1",
+          "components":
+          {"input_tick_setpoint": "emma_plc.output_tick_heatpump1",
           "input_temperature": "outside_temperature.output_temperature"
         }
+          
+        }
       },
-      "heatpump2": {
+       {
         "type": "CiatHeatpump",
         "init": {
           "name": "Warmtepomp2",
-          "rated_power_in_kw": 235,
-          "t0": "2023-01-01T00:00"
+          "t0": "2023-01-01T00:00",
+          "components":{
+            "rated_power_in_kw": 235
+          }
+
         },
         "inputs": {
-          "input_tick_setpoint": "emma_plc.output_tick_heatpump2",
-          "input_temperature": "outside_temperature.output_temperature"
+          "components":{
+            "input_tick_setpoint": "emma_plc.output_tick_heatpump2",
+            "input_temperature": "outside_temperature.output_temperature"}
+          
         }
       },
-      "heatpump3": {
+       {
         "type": "CiatHeatpump",
         "init": {
           "name": "Warmtepomp3",
-          "rated_power_in_kw": 235,
-          "t0": "2023-01-01T00:00"
+          "t0": "2023-01-01T00:00",
+          "components":{
+            "rated_power_in_kw": 235
+          }
         },
         "inputs": {
-          "input_tick_setpoint": "emma_plc.output_tick_heatpump3",
-          "input_temperature": "outside_temperature.output_temperature"
+          "components":{
+            "input_tick_setpoint": "emma_plc.output_tick_heatpump3",
+            "input_temperature": "outside_temperature.output_temperature"
+          }
+       
         }
       },
-      "eboiler1": {
+      {
         "type": "Eboiler",
         "init": {
           "name": "E-ketel-1",
@@ -119,10 +145,11 @@
           "t0": "2023-01-01T00:00"
         },
         "inputs": {
-          "input_tick_setpoint": "emma_plc.output_tick_eboiler1"
+          "components":{
+            "input_tick_setpoint": "emma_plc.output_tick_eboiler1"}
         }
       },
-      "eboiler2": {
+      {
         "type": "Eboiler",
         "init": {
           "name": "E-ketel-2",
@@ -133,10 +160,12 @@
           "t0": "2023-01-01T00:00"
         },
         "inputs": {
-          "input_tick_setpoint": "emma_plc.output_tick_eboiler2"
+          "components":{
+            "input_tick_setpoint": "emma_plc.output_tick_eboiler2"}
+          
         }
       },
-      "eboiler3": {
+       {
         "type": "Eboiler",
         "init": {
           "name": "E-ketel-3",
@@ -147,16 +176,18 @@
           "t0": "2023-01-01T00:00"
         },
         "inputs": {
-          "input_tick_setpoint": "emma_plc.output_tick_eboiler3"
+          "components":{
+            "input_tick_setpoint": "emma_plc.output_tick_eboiler3"}
         }
       },
-      "total_heat_production": {
+      {
         "type": "HeatJunctionBox",
         "init": {
           "name": "Warmte productie",
           "t0": "2023-01-01T00:00"
         },
         "inputs": {
+          "components":{
           "input_ports": [
             "heatpump1.output_heat",
             "heatpump2.output_heat",
@@ -166,74 +197,89 @@
             "eboiler3.output_heat"
           ]
         }
+        }
       },
-      "ev_charging1": {
+      {
         "type": "SimulatedChargingCluster",
         "init": {
           "name": "Laadpalen OK1",
           "t0": "2023-01-01T00:00",
-          "nr_of_poles": 8,
-          "charges_per_week_per_pole": 14,
-          "rated_power_in_kw_per_pole": 7.6,
-          "pole_type": "workplace"
+          "components":{
+            "nr_of_poles": 8,
+            "charges_per_week_per_pole": 14,
+            "rated_power_in_kw_per_pole": 7.6,
+            "pole_type": "workplace"
+          }
+          
         }
       },
-      "ev_charging2": {
+       {
         "type": "SimulatedChargingCluster",
         "init": {
           "name": "Laadpalen OK3",
           "t0": "2023-01-01T00:00",
-          "nr_of_poles": 6,
-          "charges_per_week_per_pole": 14,
-          "rated_power_in_kw_per_pole": 22,
-          "pole_type": "workplace"
+          "components":{
+              "nr_of_poles": 6,
+              "charges_per_week_per_pole": 14,
+              "rated_power_in_kw_per_pole": 22,
+              "pole_type": "workplace"}
+          
         }
       },
-      "ev_charging3": {
+       {
         "type": "SimulatedChargingCluster",
         "init": {
           "name": "Laadpalen OK4",
           "t0": "2023-01-01T00:00",
-          "nr_of_poles": 6,
+          "components" :{
+            "nr_of_poles": 6,
           "charges_per_week_per_pole": 14,
           "rated_power_in_kw_per_pole": 22,
           "pole_type": "workplace"
+          }
+          
         }
       },
-      "laskast1": {
+      {
         "type": "PowerJunctionBox",
         "init": {
           "name": "laskast1",
           "t0": "2023-01-01T00:00"
         },
         "inputs": {
-          "input_ports": [
-            "heatpump1.output_power_usage",
-            "eboiler1.output_power_usage"
-          ]
+          "components":{
+            "input_ports": [
+              "heatpump1.output_power_usage",
+              "eboiler1.output_power_usage"
+            ]
+          }
+          
         }
       },
-      "laskast3": {
+       {
         "type": "PowerJunctionBox",
         "init": {
           "name": "laskast3",
           "t0": "2023-01-01T00:00"
         },
         "inputs": {
-          "input_ports": [
+          "components":{
+            "input_ports": [
             "heatpump3.output_power_usage",
             "eboiler3.output_power_usage"
-          ]
+          ]}
+          
         }
       },
-      "grid_connection": {
+       {
         "type": "PowerJunctionBox",
         "init": {
           "name": "netaansluiting",
           "t0": "2023-01-01T00:00"
         },
         "inputs": {
-          "input_ports": [
+
+          "components": { "input_ports": [
             "laskast1.output_power",
             "eboiler2.output_power_usage",
             "heatpump2.output_power_usage",
@@ -243,6 +289,8 @@
             "ev_charging2.output_power_usage",
             "ev_charging3.output_power_usage"
           ]
+        }
+         
         },
         "outputs": {
           "output_power": {
@@ -250,7 +298,8 @@
           }
         }
       }
-    }
+    ]
+    
   },
   "runner_config": {
     "start": "2023-01-01T00:00",

@@ -33,6 +33,10 @@
       "PackagePath": "staticwebassets/full_image_e1d2fd2ffe.png"
     },
     {
+      "Id": "/Users/joshuakabel/Documents/Source/Repos/CWD/BlazorApp1/wwwroot/json.json",
+      "PackagePath": "staticwebassets/json.json"
+    },
+    {
       "Id": "/Users/joshuakabel/Documents/Source/Repos/CWD/BlazorApp1/wwwroot/test.css",
       "PackagePath": "staticwebassets/test.css"
     },

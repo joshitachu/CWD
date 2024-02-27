@@ -7,26 +7,82 @@
         public string username;
         public string password;
     }
+
 }
 @{ 
+       
 
     string json2=System.IO.File.ReadAllText("wwwroot/config_bestand_simualtie_in_json.json");
+    string json3= System.IO.File.ReadAllText("wwwroot/json.json");
     string json = System.IO.File.ReadAllText("wwwroot/test.json");
+    string json4 = System.IO.File.ReadAllText("wwwroot/employee.json");
     User mahan = Newtonsoft.Json.JsonConvert.DeserializeObject<User>(json);
-    EmmaSysteem emmaSysteem= Newtonsoft.Json.JsonConvert.DeserializeObject<EmmaSysteem>(json2);
+   
+    Root root= Newtonsoft.Json.JsonConvert.DeserializeObject<Root>(json2);
+    Root root1 = Newtonsoft.Json.JsonConvert.DeserializeObject<Root>(json4);
+
+
+    @* List<Asset> assets= root.installation.assets; *@
+    
+
+    
         
 
 
 <body>
-    <h1> test: @emmaSysteem.installation.assets</h1>
+
+    <p>@root.installation.init.t0</p>
+          <p> tweede simulatie</p>
+
+
+    <ul>
+        @foreach (var asset in root.installation.assets)
+        {
+            <li>@asset.init.ToString</li>
+        }
+    </ul>
+
+
+      <p>@root.installation.assets</p>
+
+      <p> tweede simulatie</p>
+
+    <ul>
+        @foreach (var asset in root.installation.assets)
+        {
+            <li>@asset.type</li>
+        }
+    </ul>
+    <p>@root.installation.type</p>
+
+    
+    
     <h1>Usernsme: @mahan.username</h1>
     <h1> password : @mahan.password</h1>
 
-    @foreach (var asset in emmaSysteem.installation.assets)
-    {
-        <h2>@asset.Value</h2>
-        
-    }
+     <h3>Assets:</h3>
+    <ul>
+        @foreach (var asset in root.installation.assets)
+        {
+            <li>
+                <h4>Asset Type: @asset.type</h4>
+                <p>Asset Name: @asset.init.name</p>
+                <p>Asset T0: @asset.init.t0</p>
+                <p>@asset.inputs</p>
+
+                <p>Asset Components:</p>
+                <ul>
+                    @foreach (var kvp in asset.init.components)
+                    {
+                        <li>@kvp.Key: @kvp.Value</li>
+                    }
+                </ul>
+            </li>
+        }
+    </ul>
+
+   
+  
 
    
 </body>

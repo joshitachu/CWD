@@ -33,3 +33,4 @@
 /Users/joshuakabel/Documents/Source/Repos/CWD/BlazorApp1/obj/Debug/net8.0/BlazorApp1.csproj.AssemblyReference.cache
 /Users/joshuakabel/Documents/Source/Repos/CWD/BlazorApp1/bin/Debug/net8.0/Newtonsoft.Json.dll
 /Users/joshuakabel/Documents/Source/Repos/CWD/BlazorApp1/obj/Debug/net8.0/BlazorApp1.csproj.CopyComplete
+/Users/joshuakabel/Documents/Source/Repos/CWD/BlazorApp1/obj/Debug/net8.0/BlazorApp1.sourcelink.json
