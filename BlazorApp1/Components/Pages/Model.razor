@@ -1,0 +1,26 @@
+@page "/Model"
+
+
+<h3>Simulation Page</h3>
+
+<button @onclick="RunSimulation">Run Simulation</button>
+
+@if (simulationResults != null)
+{
+    <p>Results: @simulationResults</p>
+}
+
+@code {
+    private string simulationResults;
+    private async Task RunSimulation()
+{
+    // Reset results and simulate a process
+    simulationResults = "Simulation in progress...";
+    await Task.Delay(10000); // Delay for 10 seconds
+
+    // Update the simulation results with some dummy data
+    simulationResults = "Simulation completed. Here are your results: ...";
+}
+
+}
+

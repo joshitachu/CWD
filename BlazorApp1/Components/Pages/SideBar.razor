@@ -1,0 +1,112 @@
+
+@inherits LayoutComponentBase
+@rendermode InteractiveServer
+
+<div class="nav-scrollable" @onclick="@ToggleNavMenu">
+    <nav class="flex-column">
+        <div class="nav-item px-3">
+            <NavLink class="nav-link" href="" Match="NavLinkMatch.All">
+                <span class="bi bi-house-door-fill-nav-menu" aria-hidden="true"></span> Home
+            </NavLink>
+        </div>
+
+        <div class="nav-item px-3">
+            <NavLink class="nav-link" href="counter">
+                <span class="bi bi-plus-square-fill-nav-menu" aria-hidden="true"></span> Counter
+            </NavLink>
+        </div>
+
+        <div class="nav-item px-3">
+            <div class="nav-link d-flex align-items-center" @onclick:stopPropagation="true" @onclick="@ToggleSubMenu">
+                <a class="nav-link dropdown-toggle"  id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <span class="bi bi-plus-square-fill-nav-menu" aria-hidden="true"></span> Assets
+            </a>
+            </div>
+        
+            <div class="submenu" style="@submenuStyle">
+                @foreach( var asset in root.installation.assets){
+                     <div class="nav-item px-3">
+                    <NavLink class="nav-link">
+                        <a @onclick="() => SelectAsset(asset.init.name)" >@asset.init.name</a>
+                    
+                    </NavLink>
+                </div>
+
+                }
+                
+            </div>
+        </div>
+        <div class="nav-item px-3">
+            <NavLink class="nav-link" href="counter">
+                <span class="bi bi-plus-square-fill-nav-menu" aria-hidden="true"></span> Counter
+            </NavLink>
+        </div>
+
+    </nav>
+
+</div>
+
+@* <div id="content">
+
+    @if(clicked){
+        <BlazorApp1.Components.Pages.AssetDetails SelectedAsset="selectedAsset" ></BlazorApp1.Components.Pages.AssetDetails>  
+    }
+
+</div> *@
+
+@code {
+
+    SharedService sharedService;
+
+    private bool collapseNavMenu = true;
+    private bool expandSubMenu = false;
+
+    private string submenuStyle => expandSubMenu ? "display:block" : "display:none";
+
+    private void ToggleNavMenu()
+    {
+        collapseNavMenu = !collapseNavMenu;
+    }
+
+    private void ToggleSubMenu()
+    {
+        expandSubMenu = !expandSubMenu; // Toggle the value of expandSubMenu
+    }
+
+    string json2;
+    Root root;
+    [Parameter]
+    public Asset selectedAsset { get; set; }
+
+    [Parameter]
+    public string test{get;set;}
+    int count;
+
+    private bool clicked;
+
+    string selected = "";
+
+    protected override void OnInitialized()
+    {
+        json2 = System.IO.File.ReadAllText("wwwroot/config_bestand_simualtie_in_json.json");
+
+        // Deserialization
+        root = Newtonsoft.Json.JsonConvert.DeserializeObject<Root>(json2);
+
+        // Initialize count
+        count = root?.installation?.assets?.Count ?? 0;
+    }
+
+    public void SelectAsset(string assetType)
+    {
+        selectedAsset = root.installation.assets.FirstOrDefault(a => a.init.name == assetType);
+        clicked=true;
+        
+        this.selected=assetType;
+        
+    }
+
+     
+
+     
+}

@@ -34,3 +34,7 @@
 /Users/joshuakabel/Documents/Source/Repos/CWD/BlazorApp1/bin/Debug/net8.0/Newtonsoft.Json.dll
 /Users/joshuakabel/Documents/Source/Repos/CWD/BlazorApp1/obj/Debug/net8.0/BlazorApp1.csproj.CopyComplete
 /Users/joshuakabel/Documents/Source/Repos/CWD/BlazorApp1/obj/Debug/net8.0/BlazorApp1.sourcelink.json
+/Users/joshuakabel/Documents/Source/Repos/CWD/BlazorApp1/bin/Debug/net8.0/BlazorBootstrap.dll
+/Users/joshuakabel/Documents/Source/Repos/CWD/BlazorApp1/obj/Debug/net8.0/scopedcss/Components/Pages/SideBar.razor.rz.scp.css
+/Users/joshuakabel/Documents/Source/Repos/CWD/BlazorApp1/obj/Debug/net8.0/scopedcss/Components/Pages/AssetDetails.razor.rz.scp.css
+/Users/joshuakabel/Documents/Source/Repos/CWD/BlazorApp1/obj/Debug/net8.0/scopedcss/Components/Pages/Model.razor.rz.scp.css

@@ -1,10 +1,25 @@
 {
   "version": 2,
-  "dgSpecHash": "EE6egJbhnEdgwXWzE6EfXOjydM7R9csW6SE1+AuPmlHjPfd9yr2/+lzegksR1x8UYoj6b4/44In11rfgh+WzSA==",
+  "dgSpecHash": "ivK6SKOC8uxpnlAe70hnpvaxSp1zO7DG2FY9uZha7iS68St/Sm+fy0PsRYrW3sm7d68x5fEFFeZbXQgOC5xR2g==",
   "success": true,
   "projectFilePath": "/Users/joshuakabel/Documents/Source/Repos/CWD/BlazorApp1/BlazorApp1.csproj",
   "expectedPackageFiles": [
-    "/Users/joshuakabel/.nuget/packages/newtonsoft.json/13.0.3/newtonsoft.json.13.0.3.nupkg.sha512"
+    "/Users/joshuakabel/.nuget/packages/blazor.bootstrap/2.0.0/blazor.bootstrap.2.0.0.nupkg.sha512",
+    "/Users/joshuakabel/.nuget/packages/microsoft.aspnetcore.authorization/8.0.2/microsoft.aspnetcore.authorization.8.0.2.nupkg.sha512",
+    "/Users/joshuakabel/.nuget/packages/microsoft.aspnetcore.components/8.0.2/microsoft.aspnetcore.components.8.0.2.nupkg.sha512",
+    "/Users/joshuakabel/.nuget/packages/microsoft.aspnetcore.components.analyzers/8.0.2/microsoft.aspnetcore.components.analyzers.8.0.2.nupkg.sha512",
+    "/Users/joshuakabel/.nuget/packages/microsoft.aspnetcore.components.forms/8.0.2/microsoft.aspnetcore.components.forms.8.0.2.nupkg.sha512",
+    "/Users/joshuakabel/.nuget/packages/microsoft.aspnetcore.components.quickgrid/8.0.2/microsoft.aspnetcore.components.quickgrid.8.0.2.nupkg.sha512",
+    "/Users/joshuakabel/.nuget/packages/microsoft.aspnetcore.components.web/8.0.2/microsoft.aspnetcore.components.web.8.0.2.nupkg.sha512",
+    "/Users/joshuakabel/.nuget/packages/microsoft.aspnetcore.metadata/8.0.2/microsoft.aspnetcore.metadata.8.0.2.nupkg.sha512",
+    "/Users/joshuakabel/.nuget/packages/microsoft.extensions.dependencyinjection/8.0.0/microsoft.extensions.dependencyinjection.8.0.0.nupkg.sha512",
+    "/Users/joshuakabel/.nuget/packages/microsoft.extensions.dependencyinjection.abstractions/8.0.0/microsoft.extensions.dependencyinjection.abstractions.8.0.0.nupkg.sha512",
+    "/Users/joshuakabel/.nuget/packages/microsoft.extensions.logging.abstractions/8.0.0/microsoft.extensions.logging.abstractions.8.0.0.nupkg.sha512",
+    "/Users/joshuakabel/.nuget/packages/microsoft.extensions.options/8.0.2/microsoft.extensions.options.8.0.2.nupkg.sha512",
+    "/Users/joshuakabel/.nuget/packages/microsoft.extensions.primitives/8.0.0/microsoft.extensions.primitives.8.0.0.nupkg.sha512",
+    "/Users/joshuakabel/.nuget/packages/microsoft.jsinterop/8.0.2/microsoft.jsinterop.8.0.2.nupkg.sha512",
+    "/Users/joshuakabel/.nuget/packages/newtonsoft.json/13.0.3/newtonsoft.json.13.0.3.nupkg.sha512",
+    "/Users/joshuakabel/.nuget/packages/system.io.pipelines/8.0.0/system.io.pipelines.8.0.0.nupkg.sha512"
   ],
   "logs": []
 }

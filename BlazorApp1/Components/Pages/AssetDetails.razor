@@ -1,0 +1,90 @@
+@page "/assetDetails"
+@inject AssetStateService AssetStateService
+@rendermode InteractiveServer
+
+@if (selectedAsset != null)
+{
+    <div class="dashboard">
+        <div class="asset-details">
+            <div class="header">
+                <h2>@selectedAsset.type Details</h2>
+                <p><strong>Name:</strong> @selectedAsset.init.name</p>
+                <p><strong>Initialization Time:</strong> @selectedAsset.init.t0</p>
+                <!-- Additional details can be added here -->
+            </div>
+            
+            <div class="component-list">
+                <h3>Components</h3>
+                @foreach(var component in selectedAsset.init.components)
+                {
+                    <div class="component">
+                        <span>@component.Key:</span>
+                        <span>@component.Value</span>
+                    </div>
+                }
+            </div>
+        </div>
+
+        <div class="output-input">
+            @if (selectedAsset.outputs?.components != null)
+            {
+                <div class="outputs">
+                    <h3>Outputs</h3>
+                    <div class="component-list">
+                        @foreach(var component in selectedAsset.outputs.components)
+                        {
+                            <div class="component">
+                                <span>@component.Key:</span>
+                                <span>@component.Value</span>
+                            </div>
+                        }
+                    </div>
+                </div>
+            }
+
+            @if (selectedAsset.inputs?.components != null)
+            {
+                <div class="inputs">
+                    <h3>Inputs</h3>
+                    <div class="component-list">
+                        @foreach(var component in selectedAsset.inputs.components)
+                        {
+                            <div class="component">
+                                <span>@component.Key:</span>
+                                <span>@component.Value</span>
+                            </div>
+                        }
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+}
+else
+{
+    <p>No asset selected.</p>
+}
+
+@code {
+    [Parameter]
+    public Asset SelectedAsset { get; set; }
+
+    private Asset selectedAsset;
+
+    protected override void OnInitialized()
+    {
+        selectedAsset = AssetStateService.SelectedAsset;
+        AssetStateService.OnAssetSelectionChanged += HandleAssetSelectionChanged;
+    }
+
+    private void HandleAssetSelectionChanged()
+    {
+        selectedAsset = AssetStateService.SelectedAsset;
+        StateHasChanged();
+    }
+
+    public void Dispose()
+    {
+        AssetStateService.OnAssetSelectionChanged -= HandleAssetSelectionChanged;
+    }
+}

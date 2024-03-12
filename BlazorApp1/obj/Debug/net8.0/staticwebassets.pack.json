@@ -9,14 +9,6 @@
       "PackagePath": "staticwebassets/app.css"
     },
     {
-      "Id": "/Users/joshuakabel/Documents/Source/Repos/CWD/BlazorApp1/wwwroot/bootstrap/bootstrap.min.css",
-      "PackagePath": "staticwebassets/bootstrap/bootstrap.min.css"
-    },
-    {
-      "Id": "/Users/joshuakabel/Documents/Source/Repos/CWD/BlazorApp1/wwwroot/bootstrap/bootstrap.min.css.map",
-      "PackagePath": "staticwebassets/bootstrap/bootstrap.min.css.map"
-    },
-    {
       "Id": "/Users/joshuakabel/Documents/Source/Repos/CWD/BlazorApp1/wwwroot/config_bestand_simualtie_in_json.json",
       "PackagePath": "staticwebassets/config_bestand_simualtie_in_json.json"
     },
@@ -31,6 +23,22 @@
     {
       "Id": "/Users/joshuakabel/Documents/Source/Repos/CWD/BlazorApp1/wwwroot/full_image_e1d2fd2ffe.png",
       "PackagePath": "staticwebassets/full_image_e1d2fd2ffe.png"
+    },
+    {
+      "Id": "/Users/joshuakabel/Documents/Source/Repos/CWD/BlazorApp1/wwwroot/imgs/4485909.webp",
+      "PackagePath": "staticwebassets/imgs/4485909.webp"
+    },
+    {
+      "Id": "/Users/joshuakabel/Documents/Source/Repos/CWD/BlazorApp1/wwwroot/imgs/image.dot",
+      "PackagePath": "staticwebassets/imgs/image.dot"
+    },
+    {
+      "Id": "/Users/joshuakabel/Documents/Source/Repos/CWD/BlazorApp1/wwwroot/imgs/image.jpg",
+      "PackagePath": "staticwebassets/imgs/image.jpg"
+    },
+    {
+      "Id": "/Users/joshuakabel/Documents/Source/Repos/CWD/BlazorApp1/wwwroot/imgs/model.jpeg",
+      "PackagePath": "staticwebassets/imgs/model.jpeg"
     },
     {
       "Id": "/Users/joshuakabel/Documents/Source/Repos/CWD/BlazorApp1/wwwroot/json.json",

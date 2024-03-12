@@ -5,7 +5,20 @@
     public string type { get; set; }
     public Init init { get; set; }
 
-    public Inputs inputs{get;set;}
+    public Inputs? inputs{get;set;}
+
+    public Outputs? outputs{get;set;}
+
+}
+
+
+public class Outputs{
+    public Dictionary<string,object> components{get;set;}
+
+    public Outputs(){
+        this.components= new Dictionary<string, object>();
+    }
+
 }
 
 public class Init
@@ -25,12 +38,12 @@ public class Inputs
 {
     public String type{get;set;}
 
-     public Dictionary<string, object> components { get; set; } // Move components here
+     public Dictionary<string, object>? components { get; set; } // Move components here
 
     // Constructor to initialize the dictionary
     public Inputs()
     {
-        components = new Dictionary<string, object>();
+        this.components = new Dictionary<string, object>();
     }
    
 }
@@ -46,3 +59,29 @@ public class Root
 {
     public Installation installation { get; set; }
 }
+
+
+public class SharedService
+{
+    public Asset SelectedAsset { get; set; }
+}
+
+
+public class AssetStateService
+{
+    private Asset _selectedAsset;
+    public Asset SelectedAsset
+    {
+        get => _selectedAsset;
+        set
+        {
+            _selectedAsset = value;
+            NotifyAssetSelectionChanged();
+        }
+    }
+
+    public event Action OnAssetSelectionChanged;
+
+    private void NotifyAssetSelectionChanged() => OnAssetSelectionChanged?.Invoke();
+}
+

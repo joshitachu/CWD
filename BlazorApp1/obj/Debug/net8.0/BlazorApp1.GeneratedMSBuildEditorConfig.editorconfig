@@ -22,6 +22,10 @@ build_property._RazorSourceGeneratorDebug =
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50cy9BcHAucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
+[/Users/joshuakabel/Documents/Source/Repos/CWD/BlazorApp1/Components/Pages/Assets.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50cy9QYWdlcy9Bc3NldHMucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
 [/Users/joshuakabel/Documents/Source/Repos/CWD/BlazorApp1/Components/Pages/Error.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50cy9QYWdlcy9FcnJvci5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
@@ -46,9 +50,21 @@ build_metadata.AdditionalFiles.CssScope = b-nz1yiwl0um
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50cy9MYXlvdXQvTmF2TWVudS5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = b-zjo6z1fhij
 
+[/Users/joshuakabel/Documents/Source/Repos/CWD/BlazorApp1/Components/Pages/AssetDetails.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50cy9QYWdlcy9Bc3NldERldGFpbHMucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = b-moxbu2d1in
+
 [/Users/joshuakabel/Documents/Source/Repos/CWD/BlazorApp1/Components/Pages/Home.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50cy9QYWdlcy9Ib21lLnJhem9y
 build_metadata.AdditionalFiles.CssScope = b-qq7g8le84l
+
+[/Users/joshuakabel/Documents/Source/Repos/CWD/BlazorApp1/Components/Pages/Model.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50cy9QYWdlcy9Nb2RlbC5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = b-plo340ty28
+
+[/Users/joshuakabel/Documents/Source/Repos/CWD/BlazorApp1/Components/Pages/SideBar.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50cy9QYWdlcy9TaWRlQmFyLnJhem9y
+build_metadata.AdditionalFiles.CssScope = b-8cjy00g6kq
 
 [/Users/joshuakabel/Documents/Source/Repos/CWD/BlazorApp1/Components/Pages/Test.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50cy9QYWdlcy9UZXN0LnJhem9y

@@ -136,4 +136,11 @@
     height: 75px; /* Maintain aspect ratio */
 }
 
+.submenu[b-zjo6z1fhij] {
+    display: none;
+}
+
+.submenu.show[b-zjo6z1fhij] {
+    display: block;
+}
 

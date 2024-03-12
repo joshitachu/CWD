@@ -22,11 +22,10 @@
           "t0": "2023-01-01T00:00"
         },
         "inputs": {
-          "components":{
+          "components": {
           "input_outside_temperature": "outside_temperature.output_temperature",
           "input_grid_connection": "grid_connection.output_power",
           "input_office_temperature": "office_heat.output_office_temperature"
-
           }
         }
       },
@@ -77,9 +76,12 @@
           
         },
         "outputs": {
-          "output_office_temperature": {
-            "temperature": 20
+          "components":{
+            "output_office_temperature": {
+              "temperature": 20
+            }
           }
+         
         }
       },
        {
@@ -293,9 +295,12 @@
          
         },
         "outputs": {
-          "output_power": {
-            "power": 0
+          "components":{
+            "output_power": {
+              "power": 0
+            }
           }
+          
         }
       }
     ]

@@ -136,4 +136,11 @@
     height: 75px; /* Maintain aspect ratio */
 }
 
+.submenu {
+    display: none;
+}
+
+.submenu.show {
+    display: block;
+}
 
