@@ -9,8 +9,32 @@
 
     public Outputs? outputs{get;set;}
 
+    public string? name{get;set;}
+
+    public string? desc{get;set;}
+
+    public List<Property>? Properties { get; set; }
+
+
+    public string? icon_type{get;set;}
+
 }
 
+    public class Property
+    {
+        public string? Name { get; set; }
+        public string? Description { get; set; }
+        
+        public bool Editable { get; set; }
+
+         public Dictionary<string,object> value{get;set;}
+
+
+        public Property(){
+            this.value= new Dictionary<string, object>();
+        }
+
+    }
 
 public class Outputs{
     public Dictionary<string,object> components{get;set;}
@@ -61,10 +85,6 @@ public class Root
 }
 
 
-public class SharedService
-{
-    public Asset SelectedAsset { get; set; }
-}
 
 
 public class AssetStateService
@@ -85,3 +105,21 @@ public class AssetStateService
     private void NotifyAssetSelectionChanged() => OnAssetSelectionChanged?.Invoke();
 }
 
+    
+
+public class RecordedData
+{
+    public string Name { get; set; }
+    public string Desc { get; set; }
+    public List<DataRecord> Recorded { get; set; }
+}
+
+public class DataRecord
+{
+    public string Name { get; set; }
+    public string Desc { get; set; }
+    public string Unit { get; set; }
+    public DateTime Start { get; set; }
+    public int DeltaT { get; set; }
+    public List<double> Values { get; set; }
+}

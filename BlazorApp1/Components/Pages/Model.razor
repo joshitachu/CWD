@@ -1,5 +1,5 @@
 @page "/Model"
-
+@rendermode InteractiveServer
 
 <h3>Simulation Page</h3>
 
@@ -12,15 +12,15 @@
 
 @code {
     private string simulationResults;
-    private async Task RunSimulation()
-{
-    // Reset results and simulate a process
-    simulationResults = "Simulation in progress...";
-    await Task.Delay(10000); // Delay for 10 seconds
 
-    // Update the simulation results with some dummy data
-    simulationResults = "Simulation completed. Here are your results: ...";
+    public async Task RunSimulation()
+    {
+        await Task.Delay(1000);
+        await Run();
+    }
+
+    public async Task Run()
+    {
+        simulationResults = "Simulation completed. Here are your results: ...";
+    }
 }
-
-}
-

@@ -29,7 +29,6 @@
 /Users/joshuakabel/Documents/Source/Repos/CWD/BlazorApp1/obj/Debug/net8.0/ref/BlazorApp1.dll
 /Users/joshuakabel/Documents/Source/Repos/CWD/BlazorApp1/obj/Debug/net8.0/scopedcss/Components/Layout/EmptyLayout.razor.rz.scp.css
 /Users/joshuakabel/Documents/Source/Repos/CWD/BlazorApp1/obj/Debug/net8.0/scopedcss/Components/Pages/Home.razor.rz.scp.css
-/Users/joshuakabel/Documents/Source/Repos/CWD/BlazorApp1/obj/Debug/net8.0/scopedcss/Components/Pages/Test.razor.rz.scp.css
 /Users/joshuakabel/Documents/Source/Repos/CWD/BlazorApp1/obj/Debug/net8.0/BlazorApp1.csproj.AssemblyReference.cache
 /Users/joshuakabel/Documents/Source/Repos/CWD/BlazorApp1/bin/Debug/net8.0/Newtonsoft.Json.dll
 /Users/joshuakabel/Documents/Source/Repos/CWD/BlazorApp1/obj/Debug/net8.0/BlazorApp1.csproj.CopyComplete
@@ -38,3 +37,13 @@
 /Users/joshuakabel/Documents/Source/Repos/CWD/BlazorApp1/obj/Debug/net8.0/scopedcss/Components/Pages/SideBar.razor.rz.scp.css
 /Users/joshuakabel/Documents/Source/Repos/CWD/BlazorApp1/obj/Debug/net8.0/scopedcss/Components/Pages/AssetDetails.razor.rz.scp.css
 /Users/joshuakabel/Documents/Source/Repos/CWD/BlazorApp1/obj/Debug/net8.0/scopedcss/Components/Pages/Model.razor.rz.scp.css
+/Users/joshuakabel/Documents/Source/Repos/CWD/BlazorApp1/bin/Debug/net8.0/Microsoft.AspNetCore.Authorization.dll
+/Users/joshuakabel/Documents/Source/Repos/CWD/BlazorApp1/bin/Debug/net8.0/Microsoft.AspNetCore.Components.dll
+/Users/joshuakabel/Documents/Source/Repos/CWD/BlazorApp1/bin/Debug/net8.0/Microsoft.AspNetCore.Components.Forms.dll
+/Users/joshuakabel/Documents/Source/Repos/CWD/BlazorApp1/bin/Debug/net8.0/Microsoft.AspNetCore.Components.QuickGrid.dll
+/Users/joshuakabel/Documents/Source/Repos/CWD/BlazorApp1/bin/Debug/net8.0/Microsoft.AspNetCore.Components.Web.dll
+/Users/joshuakabel/Documents/Source/Repos/CWD/BlazorApp1/bin/Debug/net8.0/Microsoft.AspNetCore.Metadata.dll
+/Users/joshuakabel/Documents/Source/Repos/CWD/BlazorApp1/bin/Debug/net8.0/Microsoft.Extensions.Options.dll
+/Users/joshuakabel/Documents/Source/Repos/CWD/BlazorApp1/bin/Debug/net8.0/Microsoft.JSInterop.dll
+/Users/joshuakabel/Documents/Source/Repos/CWD/BlazorApp1/obj/Debug/net8.0/scopedcss/Components/Pages/Assets.razor.rz.scp.css
+/Users/joshuakabel/Documents/Source/Repos/CWD/BlazorApp1/bin/Debug/net8.0/Plotly.Blazor.dll

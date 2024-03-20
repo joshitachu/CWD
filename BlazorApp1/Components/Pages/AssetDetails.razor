@@ -2,26 +2,38 @@
 @inject AssetStateService AssetStateService
 @rendermode InteractiveServer
 
+<img src="@GetAssetImagePath(selectedAsset?.type)" alt="Asset Image">
 @if (selectedAsset != null)
 {
     <div class="dashboard">
         <div class="asset-details">
-            <div class="header">
-                <h2>@selectedAsset.type Details</h2>
-                <p><strong>Name:</strong> @selectedAsset.init.name</p>
-                <p><strong>Initialization Time:</strong> @selectedAsset.init.t0</p>
-                <!-- Additional details can be added here -->
-            </div>
+            <h2 style="margin-top: 0">@selectedAsset.type Details</h2>
+            <table class="asset-table">
+              
+                    <tr>
+                        <th>@selectedAsset.init.name</th>
+                        <td>@selectedAsset.init.t0</td>
+                    </tr>
+                
+            </table>
             
             <div class="component-list">
-                <h3>Components</h3>
-                @foreach(var component in selectedAsset.init.components)
-                {
-                    <div class="component">
-                        <span>@component.Key:</span>
-                        <span>@component.Value</span>
-                    </div>
-                }
+                    <h3>Components</h3>
+                
+                <table class="component-table">
+                    @foreach(var component in selectedAsset.init.components)
+                    { if(!(component.Key ==null && component.Value ==null)){
+                        <tr>
+                            <th>@component.Key</th>
+                            <td>@component.Value</td>
+                        </tr>
+                    }else{
+                        <p>no components to show</p>
+                    }
+
+                    }
+                        
+                </table>
             </div>
         </div>
 
@@ -30,15 +42,15 @@
             {
                 <div class="outputs">
                     <h3>Outputs</h3>
-                    <div class="component-list">
+                    <table class="component-table">
                         @foreach(var component in selectedAsset.outputs.components)
                         {
-                            <div class="component">
-                                <span>@component.Key:</span>
-                                <span>@component.Value</span>
-                            </div>
+                            <tr>
+                                <th>@component.Key</th>
+                                <td>@component.Value</td>
+                            </tr>
                         }
-                    </div>
+                    </table>
                 </div>
             }
 
@@ -46,15 +58,15 @@
             {
                 <div class="inputs">
                     <h3>Inputs</h3>
-                    <div class="component-list">
+                    <table class="component-table">
                         @foreach(var component in selectedAsset.inputs.components)
                         {
-                            <div class="component">
-                                <span>@component.Key:</span>
-                                <span>@component.Value</span>
-                            </div>
+                            <tr>
+                                <th>@component.Key</th>
+                                <td>@component.Value</td>
+                            </tr>
                         }
-                    </div>
+                    </table>
                 </div>
             }
         </div>
@@ -64,7 +76,6 @@ else
 {
     <p>No asset selected.</p>
 }
-
 @code {
     [Parameter]
     public Asset SelectedAsset { get; set; }
@@ -87,4 +98,22 @@ else
     {
         AssetStateService.OnAssetSelectionChanged -= HandleAssetSelectionChanged;
     }
+
+    private Dictionary<string, string> assetImagePaths = new Dictionary<string, string>
+{
+    { "EmmaPlc", "imgs/EmmaPlc.jpg" },
+    { "AssetType2", "imgs/EmmaPlc" },
+    // Add more mappings as needed
+};
+
+private string GetAssetImagePath(string assetType)
+{
+    if (assetType != null && assetImagePaths.ContainsKey(assetType))
+    {
+        return assetImagePaths[assetType];
+    }else{
+    // Return a default image path if the asset type is not found
+    return "imgs/default_image.png";
+    }
+}
 }

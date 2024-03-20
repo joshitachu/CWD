@@ -15,32 +15,20 @@
         </div>
         <div class="nav-item px-3">
             <NavLink class="nav-link" href="/Model" Match="NavLinkMatch.All">
-                <span class="bi bi-house-door-fill-nav-menu" aria-hidden="true"></span> Simulatie
+                <span class="bi bi-plus-square-fill-nav-menu" aria-hidden="true"></span> Simulatie
+            </NavLink>
+        </div>
+
+         <div class="nav-item px-3">
+            <NavLink class="nav-link" href="/Assets" Match="NavLinkMatch.All">
+               <span class="bi bi-list-nested-nav-menu" aria-hidden="true"></span> Assets
             </NavLink>
         </div>
 
         
 
-        <div class="nav-item px-3">
-            <div class="nav-link d-flex align-items-center" @onclick:stopPropagation="true" @onclick="@ToggleSubMenu">
-                <a class="nav-link dropdown-toggle"  id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <span class="bi bi-plus-square-fill-nav-menu" aria-hidden="true"></span> Assets
-            </a>
-            </div>
-        
-            <div class="submenu" style="@submenuStyle">
-                @foreach( var asset in root.installation.assets){
-                     <div class="nav-item px-3">
-                    <NavLink class="nav-link">
-                        <a @onclick="() => SelectAsset(asset.init.name)" >@asset.init.name</a>
-                    
-                    </NavLink>
-                </div>
 
-                }
-                
-            </div>
-        </div>
+          
        
 
     </nav>
@@ -74,7 +62,7 @@
         expandSubMenu = !expandSubMenu; // Toggle the value of expandSubMenu
     }
 
-    string json2;
+    string? json2;
     Root root;
     [Parameter]
     public Asset selectedAsset { get; set; }

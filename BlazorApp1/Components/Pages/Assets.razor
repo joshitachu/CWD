@@ -1,71 +1,131 @@
 @page "/Assets"
 @inject AssetStateService AssetStateService
+@rendermode InteractiveServer
 @inject NavigationManager NavigationManager
 
 
- @foreach( var asset in root.installation.assets){
-                     <div class="nav-item px-3">
-                    <NavLink class="nav-link">
-                        <a @onclick="() => SelectAsset(asset.init.name)" >@asset.init.name</a>
-                    </NavLink>
-                     </div>
 
-                    }
+<input  type="text" class="form-control search-bar" placeholder="Search assets..." @bind="search" />
+<h1> Assets</h1>
+<p>Total assets: @root.installation.assets.Count()</p>
+ 
+<table class="table">
+    <thead>
+        <tr>
+            <th>Asset Name</th>
+            <th>Asset Type</th>
+            <th>T0</th>
+            <th>Status</th>
+            <th>View More</th>
+            
+        </tr>
+    </thead>
+    <tbody>
+    @foreach (var asset in FilteredPagedAssets)
+    {
+        <tr>
+            <td>@asset.init.name</td>
+            <td>@asset.type</td>
+            <td>@asset.init.t0</td>
+            <td>                
+                <span style="color:green">&#x2714;</span> <!-- Check mark -->
+            </td>
+             <td>
+                <button @onclick="() => SelectAsset(asset.init.name)">Select</button>
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>
 
-
+@* @if (root.installation.assets.Count() > itemsPerPage)
+{
+    <nav aria-label="Page navigation example">
+        <ul class="pagination">
+            <li class="page-item @(currentPage == 1 ? "disabled" : "")">
+                <a class="page-link"  @onclick="PreviousPage">Previous</a>
+            </li>
+            @for (var i = 1; i <= TotalPages; i++)
+            {
+                <li class="page-item @(i == currentPage ? "active" : "")">
+                    <a class="page-link" @onclick="() => SetPage(i)">@i</a>
+                </li>
+            }
+            <li class="page-item @(currentPage == TotalPages ? "disabled" : "")">
+                <a class="page-link"  @onclick="NextPage">Next</a>
+            </li>
+        </ul>
+    </nav>
+} *@
 
 @code {
+    
+    private string json2;
+    private Root root;
+    private int currentPage = 1;
+    private int itemsPerPage = 5; // Adjust the number of items per page as needed
+    private int TotalPages => (int)Math.Ceiling(root.installation.assets.Count() / (double)itemsPerPage);
 
-    SharedService sharedService;
+    
 
-    private bool collapseNavMenu = true;
-    private bool expandSubMenu = false;
-
-
-    private void ToggleNavMenu()
+    private void NextPage()
     {
-        collapseNavMenu = !collapseNavMenu;
+        if (currentPage < TotalPages)
+        {
+            currentPage++;
+        }
     }
 
-    private void ToggleSubMenu()
+    private void PreviousPage()
     {
-        expandSubMenu = !expandSubMenu; // Toggle the value of expandSubMenu
+        if (currentPage > 1)
+        {
+            currentPage--;
+        }
     }
 
-    string json2;
-    Root root;
+    private void SetPage(int page)
+    {
+        currentPage = page;
+    }
+
+   
     [Parameter]
     public Asset selectedAsset { get; set; }
 
     [Parameter]
-    public string test{get;set;}
-    int count;
-
-    private bool clicked;
-
-    string selected = "";
+    public string test { get; set; }
 
     protected override void OnInitialized()
     {
         json2 = System.IO.File.ReadAllText("wwwroot/config_bestand_simualtie_in_json.json");
-
-        // Deserialization
         root = Newtonsoft.Json.JsonConvert.DeserializeObject<Root>(json2);
-
-        // Initialize count
-        count = root?.installation?.assets?.Count ?? 0;
     }
 
-    public void SelectAsset(string assetType)
+    public void SelectAsset(string assetName)
     {
-        selectedAsset = root.installation.assets.FirstOrDefault(a => a.init.name == assetType);
-        clicked=true;
-        
-        this.selected=assetType;
-        
+        selectedAsset = root.installation.assets.FirstOrDefault(a => a.init.name == assetName);
+        AssetStateService.SelectedAsset = selectedAsset;
+        NavigationManager.NavigateTo("/assetDetails");
     }
 
-     
+    public string search {get;set;}
 
-     
+    async Task Searching(){
+    
+    }
+
+    private IEnumerable<Asset> FilteredPagedAssets => 
+        root.installation.assets
+            .Where(asset => string.IsNullOrEmpty(search) || asset.init.name.Contains(search, StringComparison.OrdinalIgnoreCase));
+
+
+    private void OnSearchQueryChanged()
+    {
+        currentPage = 1; // Reset to the first page
+        StateHasChanged(); // Refresh the component to update the filtered list
+    }
 }
+
+
+

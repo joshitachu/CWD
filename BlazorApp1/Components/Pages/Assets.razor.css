@@ -1,0 +1,115 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f5f5f5; /* Light grey background */
+    color: #333; /* Dark grey text */
+    margin: 0;
+    padding: 20px;
+}
+
+.table-container {
+    background-color: #fff; /* White background for the table */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    border-radius: 4px; /* Rounded corners for the container */
+    overflow-x: auto;
+    margin-bottom: 20px;
+    padding: 15px;
+}
+
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 10px;
+}
+
+.table th, .table td {
+    padding: 12px 8px; /* More padding for a spacious layout */
+    text-align: left;
+    border-bottom: 1px solid #e0e0e0; /* Light grey border for separation */
+}
+
+.table th {
+    background-color: #fafafa; /* Very light grey for header */
+    font-weight: normal; /* Typically QuickGrid headers are not bold */
+}
+
+.table tr:nth-child(even) {
+    background-color: #f0f0f0; /* Alternating row color */
+}
+
+/* Adjust button styles as needed */
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    padding: 0;
+}
+
+.pagination .page-item {
+    margin: 0 5px;
+}
+
+.pagination .page-link {
+    color: #333;
+    padding: 5px 10px;
+    text-decoration: none;
+    background-color: #e9ecef;
+    border-radius: 4px;
+}
+
+.pagination .page-item.active .page-link,
+.pagination .page-link:hover {
+    background-color: #007bff;
+    color: white;
+}
+
+
+button {
+    background-color: #007bff; /* Primary button color */
+    color: #ffffff;
+    border: none;
+    padding: 8px 15px;
+    margin: 5px;
+    border-radius: 4px; /* Rounded corners for the button */
+    cursor: pointer;
+    transition: background-color 0.3s ease; /* Smooth transition for hover effect */
+    outline: none; /* Remove outline for a clean design */
+    font-size: 16px; /* Slightly larger font for readability */
+}
+
+button:hover, button:focus {
+    background-color: #0056b3; /* Darker blue on hover/focus */
+    color: #ffffff;
+    outline: none; /* Ensure no outline on focus for a clean design */
+}
+
+/* Button disabled state */
+button:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+}
+/* Ensure to style your select element and any other controls as needed */
+
+/* Continue with additional styles for form elements, buttons, etc. */
+
+/* Scrollbar Styles */
+/* ... */
+
+/* Additional styles */
+/* ... */
+
+
+.form-control{
+    float: right;
+
+}
+
+.search-bar-container {
+    text-align: right;
+    margin-right: 20px;
+}
+
+.search-bar {
+    width: 200px;
+    display: inline-block;
+}

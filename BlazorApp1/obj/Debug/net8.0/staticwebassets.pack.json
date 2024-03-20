@@ -5,6 +5,10 @@
       "PackagePath": "staticwebassets/BlazorApp1.bundle.scp.css"
     },
     {
+      "Id": "/Users/joshuakabel/Documents/Source/Repos/CWD/BlazorApp1/wwwroot/Simulatie.json",
+      "PackagePath": "staticwebassets/Simulatie.json"
+    },
+    {
       "Id": "/Users/joshuakabel/Documents/Source/Repos/CWD/BlazorApp1/wwwroot/app.css",
       "PackagePath": "staticwebassets/app.css"
     },
@@ -29,12 +33,12 @@
       "PackagePath": "staticwebassets/imgs/4485909.webp"
     },
     {
-      "Id": "/Users/joshuakabel/Documents/Source/Repos/CWD/BlazorApp1/wwwroot/imgs/image.dot",
-      "PackagePath": "staticwebassets/imgs/image.dot"
+      "Id": "/Users/joshuakabel/Documents/Source/Repos/CWD/BlazorApp1/wwwroot/imgs/EmmaPlc.jpg",
+      "PackagePath": "staticwebassets/imgs/EmmaPlc.jpg"
     },
     {
-      "Id": "/Users/joshuakabel/Documents/Source/Repos/CWD/BlazorApp1/wwwroot/imgs/image.jpg",
-      "PackagePath": "staticwebassets/imgs/image.jpg"
+      "Id": "/Users/joshuakabel/Documents/Source/Repos/CWD/BlazorApp1/wwwroot/imgs/image.dot",
+      "PackagePath": "staticwebassets/imgs/image.dot"
     },
     {
       "Id": "/Users/joshuakabel/Documents/Source/Repos/CWD/BlazorApp1/wwwroot/imgs/model.jpeg",
