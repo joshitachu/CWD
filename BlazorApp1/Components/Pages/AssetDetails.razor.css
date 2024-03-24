@@ -1,50 +1,100 @@
-.dashboard {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 20px;
-}
-
-.asset-details,
-.output-input {
-    width: 45%;
-}
-
-.asset-details {
-    border-radius: 10px;
-    padding: 20px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-.asset-table {
+table {
     width: 100%;
+    border-collapse: collapse;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 2rem;
 }
 
-.asset-table th,
-.asset-table td {
-    border: none;
-    padding: 8px;
-}
-
-.asset-table th {
+th, td {
     text-align: left;
-    font-weight: bold;
+    padding: 12px;
+    border-bottom: 1px solid #ddd;
 }
 
-.component-list {
-    margin-top: 20px;
+th {
+    background-color: #f8f8f8;
+    position: sticky;
+    top: 0;
+    z-index: 100;
 }
 
-.component-table {
+tr:nth-child(even) {background-color: #f2f2f2;}
+
+tr:hover:not(:first-child) {
+    background-color: #ddd;
+}
+
+
+table {
     width: 100%;
+    border-collapse: collapse;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 2rem;
 }
 
-.component-table th,
-.component-table td {
-    border: none;
-    padding: 8px;
-}
-
-.component-table th {
+th, td {
     text-align: left;
-    font-weight: bold;
+    padding: 12px;
+    border-bottom: 1px solid #ddd;
+}
+
+th {
+    background-color: #f8f8f8;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+tr:nth-child(even) {background-color: #f2f2f2;}
+
+tr:hover:not(:first-child) {
+    background-color: #ddd;
+}
+
+
+@media (max-width: 768px) {
+    body {
+        padding: 10px;
+    }
+
+    table {
+        font-size: 14px;
+    }
+}
+
+
+/* Image and icon styles */
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+.icon {
+    width: 16px;
+    height: 16px;
+    display: inline-block;
+    background-size: contain;
+}
+
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.fadeIn {
+    animation: fadeIn 1s ease-in-out;
+}
+
+button:hover, a:hover {
+    opacity: 0.8;
+    transition: opacity 0.3s ease;
+}
+
+h1{
+    text-align: center;
+
 }

@@ -1,90 +1,65 @@
 @page "/assetDetails"
 @inject AssetStateService AssetStateService
 @rendermode InteractiveServer
+@inject NavigationManager NavigationManager
 
-<img src="@GetAssetImagePath(selectedAsset?.type)" alt="Asset Image">
-@if (selectedAsset != null)
-{
-    <div class="dashboard">
-        <div class="asset-details">
-            <h2 style="margin-top: 0">@selectedAsset.type Details</h2>
-            <table class="asset-table">
-              
-                    <tr>
-                        <th>@selectedAsset.init.name</th>
-                        <td>@selectedAsset.init.t0</td>
-                    </tr>
-                
-            </table>
-            
-            <div class="component-list">
-                    <h3>Components</h3>
-                
-                <table class="component-table">
-                    @foreach(var component in selectedAsset.init.components)
-                    { if(!(component.Key ==null && component.Value ==null)){
-                        <tr>
-                            <th>@component.Key</th>
-                            <td>@component.Value</td>
-                        </tr>
-                    }else{
-                        <p>no components to show</p>
-                    }
 
-                    }
-                        
-                </table>
-            </div>
-        </div>
+@if(selectedAsset != null){
+    <h2 style="margin-top: 0">@selectedAsset.Name Details</h2>
+    <br>
+    <br>
+    
+    <h3>Properties:</h3>
+    
+    <table>
+        <tr>
+            <th>Property Name</th>
+            <th>Property Value</th>
+            <th>Property Editable</th>
+        </tr>
+        @foreach(var property in selectedAsset.Properties){
+            <tr>
+                <td>@property.Name</td>
+                <td>@property.Value</td>
+                <td>@property.Editable</td>
+            </tr>
+        }
+    </table>
 
-        <div class="output-input">
-            @if (selectedAsset.outputs?.components != null)
-            {
-                <div class="outputs">
-                    <h3>Outputs</h3>
-                    <table class="component-table">
-                        @foreach(var component in selectedAsset.outputs.components)
-                        {
-                            <tr>
-                                <th>@component.Key</th>
-                                <td>@component.Value</td>
-                            </tr>
-                        }
-                    </table>
-                </div>
-            }
+    <h3>Inputs/Outputs:</h3>
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Class</th>
+            <th>Description</th>
+        </tr>
+        @foreach(var output in selectedAsset.Outputs){
+            <tr>
+                <td>@output.Name</td>
+                <td>@output._Clazz</td>
+                <td>@output.Desc</td>
+            </tr>
+        }
+    </table>
+}else{
 
-            @if (selectedAsset.inputs?.components != null)
-            {
-                <div class="inputs">
-                    <h3>Inputs</h3>
-                    <table class="component-table">
-                        @foreach(var component in selectedAsset.inputs.components)
-                        {
-                            <tr>
-                                <th>@component.Key</th>
-                                <td>@component.Value</td>
-                            </tr>
-                        }
-                    </table>
-                </div>
-            }
-        </div>
-    </div>
+    <p> No data availabe</p>
+
 }
-else
-{
-    <p>No asset selected.</p>
-}
+
+
+
+
+
 @code {
     [Parameter]
-    public Asset SelectedAsset { get; set; }
+    public Asset SelectedAsset { get; set;}
 
     private Asset selectedAsset;
 
     protected override void OnInitialized()
     {
-        selectedAsset = AssetStateService.SelectedAsset;
+        this.selectedAsset = AssetStateService.SelectedAsset;
         AssetStateService.OnAssetSelectionChanged += HandleAssetSelectionChanged;
     }
 

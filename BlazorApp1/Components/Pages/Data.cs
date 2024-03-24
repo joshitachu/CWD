@@ -1,89 +1,46 @@
-// Root myDeserializedClass = JsonConvert.DeserializeObject<Root>(myJsonResponse);
-
- public class Asset
+public class Installation
 {
     public string type { get; set; }
-    public Init init { get; set; }
-
-    public Inputs? inputs{get;set;}
-
-    public Outputs? outputs{get;set;}
-
-    public string? name{get;set;}
-
-    public string? desc{get;set;}
-
-    public List<Property>? Properties { get; set; }
-
-
-    public string? icon_type{get;set;}
-
-}
-
-    public class Property
-    {
-        public string? Name { get; set; }
-        public string? Description { get; set; }
-        
-        public bool Editable { get; set; }
-
-         public Dictionary<string,object> value{get;set;}
-
-
-        public Property(){
-            this.value= new Dictionary<string, object>();
-        }
-
-    }
-
-public class Outputs{
-    public Dictionary<string,object> components{get;set;}
-
-    public Outputs(){
-        this.components= new Dictionary<string, object>();
-    }
-
+    public Init Init { get; set; }
+    public List<Asset> assets { get; set; }
 }
 
 public class Init
 {
-    public string name { get; set; }
-    public string t0 { get; set; }
-    public Dictionary<string, object> components { get; set; } // Move components here
-
-    // Constructor to initialize the dictionary
-    public Init()
-    {
-        components = new Dictionary<string, object>();
-    }
+    public string Name { get; set; }
+    public DateTime T0 { get; set; }
 }
 
-public class Inputs
+public class Asset
 {
-    public String type{get;set;}
-
-     public Dictionary<string, object>? components { get; set; } // Move components here
-
-    // Constructor to initialize the dictionary
-    public Inputs()
-    {
-        this.components = new Dictionary<string, object>();
-    }
-   
+    public string Name { get; set; }
+    public string Desc { get; set; }
+    public string IconType { get; set; }
+    public List<Property> Properties { get; set; }
+    public List<InputOutput> Inputs { get; set; }
+    public List<InputOutput> Outputs { get; set; }
 }
 
-public class Installation
+public class Property
 {
-    public string type { get; set; }
-    public Init init { get; set; }
-    public List<Asset> assets { get; set; }
+    public string Name { get; set; }
+    public string Desc { get; set; }
+    public object Value { get; set; }
+    public bool Editable { get; set; }
+    public string _Clazz { get; set; }
+}
+
+public class InputOutput
+{
+    public string Name { get; set; }
+    public string Desc { get; set; }
+    public string _Clazz { get; set; }
 }
 
 public class Root
 {
     public Installation installation { get; set; }
 }
-
 
 
 
@@ -105,21 +62,21 @@ public class AssetStateService
     private void NotifyAssetSelectionChanged() => OnAssetSelectionChanged?.Invoke();
 }
 
+
+ public class YourDataModel
+    {
+        public string name { get; set; }
+        public string desc { get; set; }
+        public List<RecordedData> recorded { get; set; }
+    }
+
+    public class RecordedData
+    {
+        public string name { get; set; }
+        public string desc { get; set; }
+        public string unit { get; set; }
+        public string start { get; set; }
+        public double delta_t { get; set; }
+        public List<double> values { get; set; }
+    }
     
-
-public class RecordedData
-{
-    public string Name { get; set; }
-    public string Desc { get; set; }
-    public List<DataRecord> Recorded { get; set; }
-}
-
-public class DataRecord
-{
-    public string Name { get; set; }
-    public string Desc { get; set; }
-    public string Unit { get; set; }
-    public DateTime Start { get; set; }
-    public int DeltaT { get; set; }
-    public List<double> Values { get; set; }
-}
