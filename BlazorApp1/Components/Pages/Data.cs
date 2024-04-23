@@ -13,7 +13,7 @@ public class Init
 
 public class Asset
 {
-    public string Name { get; set; }
+    public string Name { get; set; } = null!;
     public string Desc { get; set; }
     public string IconType { get; set; }
     public List<Property> Properties { get; set; }
@@ -79,4 +79,6 @@ public class AssetStateService
         public double delta_t { get; set; }
         public List<double> values { get; set; }
     }
+
+    
     

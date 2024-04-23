@@ -1,0 +1,98 @@
+body {
+    font-family: 'Arial', sans-serif;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+}
+
+h1 {
+    text-align: center;
+}
+
+main {
+    text-align: left;
+    padding-top: 20px;
+}
+
+area:hover {
+    opacity: 0.7; /* Reduce opacity on hover */
+    cursor: pointer; /* Change cursor to pointer on hover */
+}
+
+
+.hero {
+    background-color: #f0f0f0;
+    padding: 5px; /* Decreased padding */
+    margin-bottom: 20px; /* Increased margin */
+}
+
+.hero img {
+    width:100%; /* Decreased width */
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    max-height: calc(100vh - 220px); /* Adjusted max-height */
+}
+
+
+
+.products {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 30px;
+    padding: 0 20px;
+}
+
+.product {
+    background-color: #f0f0f0;
+    padding: 20px;
+    border-radius: 5px;
+    width: calc(33.33% - 30px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+button {
+    background-color: #630D80;
+    color: #ffffff;
+    border: none;
+    padding: 8px 12px;
+    margin-top: auto;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: all .2s ease-in-out;
+    outline: none;
+    font-size: 14px;
+}
+
+button:hover, button:focus {
+    transform: scale(1.05);
+}
+a {
+   
+    
+    padding: 8px 12px;
+    margin-top: auto;
+    border-radius: 3px;
+    
+    transition: all .2s ease-in-out;
+    outline: none;
+    
+}
+
+a:hover, button:focus {
+    transform: scale(1.05);
+}
+
+h2 {
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+p {
+    margin-bottom: 20px;
+    text-align: left;
+}

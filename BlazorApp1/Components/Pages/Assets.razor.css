@@ -1,13 +1,12 @@
 body {
-    font-family: 'Arial', sans-serif;
-    background-color: #f5f5f5; /* Light grey background */
+    font-family: 'Arial', sans-serif;/* Light grey background */
     color: #333; /* Dark grey text */
     margin: 0;
     padding: 20px;
 }
 
 .table-container {
-    background-color: #fff; /* White background for the table */
+    background-color: black;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
     border-radius: 4px; /* Rounded corners for the container */
     overflow-x: auto;
@@ -16,6 +15,7 @@ body {
 }
 
 .table {
+    background-color: black;
     width: 100%;
     border-collapse: collapse;
     margin-bottom: 10px;
@@ -33,7 +33,6 @@ body {
 }
 
 .table tr:nth-child(even) {
-    background-color: #f0f0f0; /* Alternating row color */
 }
 
 /* Adjust button styles as needed */
@@ -65,29 +64,22 @@ body {
 
 
 button {
-    background-color: #007bff; /* Primary button color */
+    background-color: #630D80;
     color: #ffffff;
     border: none;
-    padding: 8px 15px;
-    margin: 5px;
-    border-radius: 4px; /* Rounded corners for the button */
+    padding: 8px 12px;
+    margin-top: auto;
+    border-radius: 3px;
     cursor: pointer;
-    transition: background-color 0.3s ease; /* Smooth transition for hover effect */
-    outline: none; /* Remove outline for a clean design */
-    font-size: 16px; /* Slightly larger font for readability */
+    transition: all .2s ease-in-out;
+    outline: none;
+    font-size: 14px;
 }
 
-button:hover, button:focus {
-    background-color: #0056b3; /* Darker blue on hover/focus */
-    color: #ffffff;
-    outline: none; /* Ensure no outline on focus for a clean design */
+button:hover {
+    transform: scale(1.05);
 }
 
-/* Button disabled state */
-button:disabled {
-    background-color: #cccccc;
-    cursor: not-allowed;
-}
 /* Ensure to style your select element and any other controls as needed */
 
 /* Continue with additional styles for form elements, buttons, etc. */
@@ -112,4 +104,16 @@ button:disabled {
 .search-bar {
     width: 200px;
     display: inline-block;
+}
+
+
+label{
+    width: 500px;
+    height: 200px;
+    position: relative;
+    display: block;
+    background: #ebebeb;
+    border-radius: 20px;
+    box-shadow: inset 0px 5px 15px rgba(0,0,0,4), inset 0px -5px -15px rgba(255,255,255,0.4);
+    cursor: pointer;
 }

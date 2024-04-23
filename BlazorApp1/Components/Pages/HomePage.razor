@@ -1,3 +1,57 @@
 @page "/"
+@inject NavigationManager NavigationManager
 
-<img src="imgs/model.jpeg" width="800px" height="750px">
+
+<PageTitle>Home</PageTitle>
+<body>
+
+        <main>
+        <h1>EMMA ONLINE</h1>
+        <section class="hero">
+            <img src="imgs/ModelIMG.jpeg" usemap="#image_map" >
+
+<map name="image_map">
+    <area alt="Laadpaal" title="Laadpaal" href="/assets" coords="410,59 411,14 420,6 446,20 448,51 532,100 410,174 315,119 " shape="polygon">
+    <area alt="Batterij" title="Batterij" href="" coords="692,91 788,37 844,73 847,143 751,197 694,165 " shape="polygon">
+    <area alt="PLC" title="PLC" href="" coords="512,229,632,348" shape="rect">
+    <area alt="Netaansluiting" title="Netaansluiting" href="" coords="337,234 366,233 374,257 424,268 433,281 378,281 393,342 307,345 324,281 269,283 281,268 330,255 " shape="polygon">
+    <area alt="Kabel" title="Kabel" href="" coords="734,251 763,250 803,263 834,251 881,251 884,329 871,339 807,339 769,333 735,324 " shape="polygon">
+    <area alt="Zonnepaneel" title="Zonnepaneel" href="" coords="348,401 419,407 466,515 434,519 439,529 364,534 325,421 354,420 " shape="polygon">
+    <area alt="WKO" title="WKO" href="" coords="766,478,67" shape="circle">
+</map>
+        </section>
+<hr>
+
+        <section class="products">
+            <div class="product">
+                <h2>Simulatie</h2>
+                <p>
+                    Nieuwsgierig naar hoe jouw elektrische assets zouden presteren onder verschillende omstandigheden? Onze geavanceerde simulatie biedt inzicht in de prestaties en optimalisatiemogelijkheden van jouw elektrische infrastructuur, waardoor je weloverwogen beslissingen kunt nemen voor efficiëntie en betrouwbaarheid.  Klik op de 'Run Simulatie' knop en ontdek het! 
+                </p>
+                <a href="/Model"><button>Bekijk Simulatie</button></a>
+            </div>
+            <div class="product">
+                <h2>Assets</h2>
+                <p>Klik hieronder om de volledige lijst met assets te bekijken, inclusief gedetailleerde informatie over elk onderdeel. Van generatoren tot transformatoren en alles daartussenin, krijg een compleet beeld van jouw elektrische infrastructuur en maak geïnformeerde beslissingen voor optimale prestaties.</p>
+                <a href="/Assets"><button>Bekijk Assets</button></a>
+            </div>
+            <div class="product">
+                <h2>Handleiding</h2>
+                <p>Of je nu een beginner bent of een doorgewinterde gebruiker, onze stapsgewijze instructies helpen je om alle functies van het assetmodel te begrijpen en effectief te gebruiken. Laten we samen aan de slag gaan en jouw elektrische infrastructuur naar een hoger niveau te tillen!</p>
+                <a href="/handleiding"><button>Bekijk Handleiding</button></a>
+            </div>
+        </section>
+    </main>
+
+    </body>
+
+
+    @code{
+        private void NavigateToPage(string page)
+    {
+        NavigationManager.NavigateTo(page);
+    }
+    }
+    
+
+

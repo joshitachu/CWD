@@ -11,10 +11,10 @@ main[b-nz1yiwl0um] {
 }
 
 .sidebar[b-nz1yiwl0um] {
-    background-image: linear-gradient(180deg, rgb(5, 39, 103) 0%, #3a0647 70%);
+    background: linear-gradient(180deg, #4a125e, #005429);
 }
 
-.top-row[b-nz1yiwl0um] {
+.top-row[b-nz1yiwl0um] {  
     background-color: #f7f7f7;
     border-bottom: 1px solid #d6d5d5;
     justify-content: flex-end;
@@ -123,7 +123,7 @@ main[b-nz1yiwl0um] {
     position: absolute;
     top: 0.5rem;
     right: 1rem;
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(216, 52, 52, 0.1);
     background: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 0.55%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e") no-repeat center/1.75rem rgba(255, 255, 255, 0.1);
 }
 
@@ -200,6 +200,7 @@ main[b-nz1yiwl0um] {
 
 .nav-scrollable[b-zjo6z1fhij] {
     display: none;
+    color: black;
 }
 
 .navbar-toggler:checked ~ .nav-scrollable[b-zjo6z1fhij] {
@@ -243,6 +244,20 @@ main[b-nz1yiwl0um] {
     display: block;
 }
 
+
+.sidebar[b-zjo6z1fhij]{
+    color: red;
+    background-color: red;
+}
+
+
+div p[b-zjo6z1fhij] {
+    padding-left: 10px;
+    font-family: 'Arial', sans-serif;
+    font-size: 25px;
+    color: #ffffff;
+   
+}
 /* _content/BlazorApp1/Components/Pages/AssetDetails.razor.rz.scp.css */
 table[b-moxbu2d1in] {
     width: 100%;
@@ -335,26 +350,47 @@ img[b-moxbu2d1in] {
     animation: fadeIn-b-moxbu2d1in 1s ease-in-out;
 }
 
-button:hover[b-moxbu2d1in], a:hover[b-moxbu2d1in] {
-    opacity: 0.8;
-    transition: opacity 0.3s ease;
+button[b-moxbu2d1in] {
+    background-color: #630D80;
+    color: #ffffff;
+    border: none;
+    padding: 8px 12px;
+    margin-top: auto;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: all .2s ease-in-out;
+    outline: none;
+    font-size: 14px;
 }
 
-h1[b-moxbu2d1in]{
-    text-align: center;
+button:hover[b-moxbu2d1in] {
+    transform: scale(1.05);
+}
 
+
+.disclaimer[b-moxbu2d1in] {
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.disclaimer-text[b-moxbu2d1in] {
+    font-size: 0.9em;
+    color: #666;
+    margin: 0;
 }
 /* _content/BlazorApp1/Components/Pages/Assets.razor.rz.scp.css */
 body[b-5xcum0xatk] {
-    font-family: 'Arial', sans-serif;
-    background-color: #f5f5f5; /* Light grey background */
+    font-family: 'Arial', sans-serif;/* Light grey background */
     color: #333; /* Dark grey text */
     margin: 0;
     padding: 20px;
 }
 
 .table-container[b-5xcum0xatk] {
-    background-color: #fff; /* White background for the table */
+    background-color: black;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
     border-radius: 4px; /* Rounded corners for the container */
     overflow-x: auto;
@@ -363,6 +399,7 @@ body[b-5xcum0xatk] {
 }
 
 .table[b-5xcum0xatk] {
+    background-color: black;
     width: 100%;
     border-collapse: collapse;
     margin-bottom: 10px;
@@ -380,7 +417,6 @@ body[b-5xcum0xatk] {
 }
 
 .table tr:nth-child(even)[b-5xcum0xatk] {
-    background-color: #f0f0f0; /* Alternating row color */
 }
 
 /* Adjust button styles as needed */
@@ -412,29 +448,22 @@ body[b-5xcum0xatk] {
 
 
 button[b-5xcum0xatk] {
-    background-color: #007bff; /* Primary button color */
+    background-color: #630D80;
     color: #ffffff;
     border: none;
-    padding: 8px 15px;
-    margin: 5px;
-    border-radius: 4px; /* Rounded corners for the button */
+    padding: 8px 12px;
+    margin-top: auto;
+    border-radius: 3px;
     cursor: pointer;
-    transition: background-color 0.3s ease; /* Smooth transition for hover effect */
-    outline: none; /* Remove outline for a clean design */
-    font-size: 16px; /* Slightly larger font for readability */
+    transition: all .2s ease-in-out;
+    outline: none;
+    font-size: 14px;
 }
 
-button:hover[b-5xcum0xatk], button:focus[b-5xcum0xatk] {
-    background-color: #0056b3; /* Darker blue on hover/focus */
-    color: #ffffff;
-    outline: none; /* Ensure no outline on focus for a clean design */
+button:hover[b-5xcum0xatk] {
+    transform: scale(1.05);
 }
 
-/* Button disabled state */
-button:disabled[b-5xcum0xatk] {
-    background-color: #cccccc;
-    cursor: not-allowed;
-}
 /* Ensure to style your select element and any other controls as needed */
 
 /* Continue with additional styles for form elements, buttons, etc. */
@@ -459,6 +488,82 @@ button:disabled[b-5xcum0xatk] {
 .search-bar[b-5xcum0xatk] {
     width: 200px;
     display: inline-block;
+}
+
+
+label[b-5xcum0xatk]{
+    width: 500px;
+    height: 200px;
+    position: relative;
+    display: block;
+    background: #ebebeb;
+    border-radius: 20px;
+    box-shadow: inset 0px 5px 15px rgba(0,0,0,4), inset 0px -5px -15px rgba(255,255,255,0.4);
+    cursor: pointer;
+}
+/* _content/BlazorApp1/Components/Pages/Handleiding.razor.rz.scp.css */
+h1[b-g7cw5nas2p] {
+    margin-left: 60px;
+    color: #630d80;
+}
+
+p[b-g7cw5nas2p] {
+    font-size: 20px;
+    font-family: "Lucida Console", "Courier New", monospace;
+    margin: 0 40px; /* Consistent spacing around text */
+}
+
+.p1[b-g7cw5nas2p] {
+    text-align: center;
+}
+
+.company-picture[b-g7cw5nas2p] {
+    display: block;
+    margin: 50px;
+    width: 800px;
+    height: 450px;
+}
+
+.divider[b-g7cw5nas2p] {
+    width: 100%;
+    margin: auto;
+    height: 2px;
+    background-color: gray;
+}
+
+.content-container[b-g7cw5nas2p] {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 20px 0; /* Added some spacing */
+}
+
+.image-container[b-g7cw5nas2p] {
+    border: 1px solid black;   
+}
+
+.image1[b-g7cw5nas2p] {
+    width: 500px;
+    height: 300px;
+}
+
+.image2[b-g7cw5nas2p] {
+    width: 500px;
+    height: 300px;
+}
+
+.text[b-g7cw5nas2p] {
+    font-size: 20px;
+    font-family: "Lucida Console", "Courier New", monospace;
+    margin: 0 40px; /* Consistent spacing around text */
+}
+
+.left .text[b-g7cw5nas2p] {
+    margin-right: 130px;
+}
+
+.right .text[b-g7cw5nas2p] {
+    margin-left: 130px;
 }
 /* _content/BlazorApp1/Components/Pages/Home.razor.rz.scp.css */
 body[b-qq7g8le84l] {
@@ -572,30 +677,106 @@ nav a[b-qq7g8le84l] {
 
 
 
-/* _content/BlazorApp1/Components/Pages/Model.razor.rz.scp.css */
-/* Add this to your CSS file */
-.modal[b-plo340ty28] {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-    z-index: 1000;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+/* _content/BlazorApp1/Components/Pages/HomePage.razor.rz.scp.css */
+body[b-zm88yst6zj] {
+    font-family: 'Arial', sans-serif;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
 }
 
-.modal-content[b-plo340ty28] {
-    background-color: white;
-    border-radius: 5px;
-    padding: 20px;
-}
-
-.modal-body[b-plo340ty28] {
+h1[b-zm88yst6zj] {
     text-align: center;
 }
+
+main[b-zm88yst6zj] {
+    text-align: left;
+    padding-top: 20px;
+}
+
+area:hover[b-zm88yst6zj] {
+    opacity: 0.7; /* Reduce opacity on hover */
+    cursor: pointer; /* Change cursor to pointer on hover */
+}
+
+
+.hero[b-zm88yst6zj] {
+    background-color: #f0f0f0;
+    padding: 5px; /* Decreased padding */
+    margin-bottom: 20px; /* Increased margin */
+}
+
+.hero img[b-zm88yst6zj] {
+    width:100%; /* Decreased width */
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    max-height: calc(100vh - 220px); /* Adjusted max-height */
+}
+
+
+
+.products[b-zm88yst6zj] {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 30px;
+    padding: 0 20px;
+}
+
+.product[b-zm88yst6zj] {
+    background-color: #f0f0f0;
+    padding: 20px;
+    border-radius: 5px;
+    width: calc(33.33% - 30px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+button[b-zm88yst6zj] {
+    background-color: #630D80;
+    color: #ffffff;
+    border: none;
+    padding: 8px 12px;
+    margin-top: auto;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: all .2s ease-in-out;
+    outline: none;
+    font-size: 14px;
+}
+
+button:hover[b-zm88yst6zj], button:focus[b-zm88yst6zj] {
+    transform: scale(1.05);
+}
+a[b-zm88yst6zj] {
+   
+    
+    padding: 8px 12px;
+    margin-top: auto;
+    border-radius: 3px;
+    
+    transition: all .2s ease-in-out;
+    outline: none;
+    
+}
+
+a:hover[b-zm88yst6zj], button:focus[b-zm88yst6zj] {
+    transform: scale(1.05);
+}
+
+h2[b-zm88yst6zj] {
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+p[b-zm88yst6zj] {
+    margin-bottom: 20px;
+    text-align: left;
+}
+/* _content/BlazorApp1/Components/Pages/Model.razor.rz.scp.css */
 /* _content/BlazorApp1/Components/Pages/SideBar.razor.rz.scp.css */
 #brand-image[b-8cjy00g6kq] {
     height: 3rem; /* Adjust the height as needed */
@@ -743,3 +924,82 @@ nav a[b-qq7g8le84l] {
     display: block;
 }
 
+/* _content/BlazorApp1/Components/Pages/Test.razor.rz.scp.css */
+
+#image-container[b-o5cyh3pxzb] {
+    position: relative;
+    margin: 50px auto;
+    width: 600px; /* Adjust according to your image size */
+}
+
+#image-container img[b-o5cyh3pxzb] {
+    max-width: 100%;
+    height: auto;
+}
+
+map[b-o5cyh3pxzb] {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 10;
+}
+
+area[b-o5cyh3pxzb] {
+    outline: none;
+    cursor: pointer;
+}
+
+/* Styling the areas */
+area[b-o5cyh3pxzb] {
+    opacity: 0.5;
+    transition: opacity 0.3s ease;
+}
+
+area:hover[b-o5cyh3pxzb] {
+    opacity: 0.8;
+}
+
+/* Styling tooltips */
+area[title]:hover[b-o5cyh3pxzb]::after {
+    content: attr(title);
+    position: absolute;
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 14px;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    white-space: nowrap;
+}
+
+/* Styling polygons */
+area[shape="polygon"][b-o5cyh3pxzb] {
+    cursor: pointer;
+    transition: fill 0.3s ease;
+}
+
+area[shape="polygon"]:hover[b-o5cyh3pxzb] {
+    fill: #0099ff; /* Change color as desired */
+}
+
+/* Styling rectangles */
+area[shape="rect"][b-o5cyh3pxzb] {
+    cursor: pointer;
+    transition: fill 0.3s ease;
+}
+
+area[shape="rect"]:hover[b-o5cyh3pxzb] {
+    fill: #ff6600; /* Change color as desired */
+}
+
+/* Styling circles */
+area[shape="circle"][b-o5cyh3pxzb] {
+    cursor: pointer;
+    transition: fill 0.3s ease;
+}
+
+area[shape="circle"]:hover[b-o5cyh3pxzb] {
+    fill: #33cc33; /* Change color as desired */
+}

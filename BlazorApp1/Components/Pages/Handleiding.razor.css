@@ -1,0 +1,63 @@
+h1 {
+    margin-left: 60px;
+    color: #630d80;
+}
+
+p {
+    font-size: 20px;
+    font-family: "Lucida Console", "Courier New", monospace;
+    margin: 0 40px; /* Consistent spacing around text */
+}
+
+.p1 {
+    text-align: center;
+}
+
+.company-picture {
+    display: block;
+    margin: 50px;
+    width: 800px;
+    height: 450px;
+}
+
+.divider {
+    width: 100%;
+    margin: auto;
+    height: 2px;
+    background-color: gray;
+}
+
+.content-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 20px 0; /* Added some spacing */
+}
+
+.image-container {
+    border: 1px solid black;   
+}
+
+.image1 {
+    width: 500px;
+    height: 300px;
+}
+
+.image2 {
+    width: 500px;
+    height: 300px;
+}
+
+.text {
+    font-size: 20px;
+    font-family: "Lucida Console", "Courier New", monospace;
+    margin: 0 40px; /* Consistent spacing around text */
+}
+
+.left .text {
+    margin-right: 130px;
+}
+
+.right .text {
+    margin-left: 130px;
+}

@@ -1,15 +1,36 @@
 html, body {
-    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    background: rgb(193, 193, 193);
+	background-color: rgb(254, 254, 254);
+	
+
+}
+
+button {
+    background-color: #630D80; /* Primary button color */
+    color: #ffffff;
+    border: none;
+    padding: 8px 15px;
+    margin: 5px;
+    border-radius: 4px; /* Rounded corners for the button */
+    cursor: pointer;
+    transition: all .2s ease-in-out; 
+    outline: none; /* Remove outline for a clean design */
+    font-size: 16px; /* Slightly larger font for readability */
+}
+
+button:hover, button:focus {
+    transform: scale(1.1); /* Added button hover effect */
+    outline: none; /* Ensure no outline on focus for a clean design */
 }
 
 a, .btn-link {
-    color: #006bb7;
+    color: #630D80;
 }
 
 .btn-primary {
     color: #fff;
-    background-color: #1b6ec2;
-    border-color: #1861ac;
+    background-color: #ae4706;
+    border-color: #ac5b18;
 }
 
 .btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
@@ -49,3 +70,16 @@ h1:focus {
 .darker-border-checkbox.form-check-input {
     border-color: #929292;
 }
+
+
+
+
+
+
+
+
+.sidebar{
+	background-color:#258cfb
+}
+
+

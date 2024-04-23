@@ -5,6 +5,18 @@
       "PackagePath": "staticwebassets/BlazorApp1.bundle.scp.css"
     },
     {
+      "Id": "/Users/joshuakabel/Documents/Source/Repos/CWD/BlazorApp1/wwwroot/Batterij_history.json",
+      "PackagePath": "staticwebassets/Batterij_history.json"
+    },
+    {
+      "Id": "/Users/joshuakabel/Documents/Source/Repos/CWD/BlazorApp1/wwwroot/EMMA PLC_history.json",
+      "PackagePath": "staticwebassets/EMMA PLC_history.json"
+    },
+    {
+      "Id": "/Users/joshuakabel/Documents/Source/Repos/CWD/BlazorApp1/wwwroot/Kantoren Elektra_history.json",
+      "PackagePath": "staticwebassets/Kantoren Elektra_history.json"
+    },
+    {
       "Id": "/Users/joshuakabel/Documents/Source/Repos/CWD/BlazorApp1/wwwroot/Simulatie.json",
       "PackagePath": "staticwebassets/Simulatie.json"
     },
@@ -15,10 +27,6 @@
     {
       "Id": "/Users/joshuakabel/Documents/Source/Repos/CWD/BlazorApp1/wwwroot/config_bestand_simualtie_in_json.json",
       "PackagePath": "staticwebassets/config_bestand_simualtie_in_json.json"
-    },
-    {
-      "Id": "/Users/joshuakabel/Documents/Source/Repos/CWD/BlazorApp1/wwwroot/employee.json",
-      "PackagePath": "staticwebassets/employee.json"
     },
     {
       "Id": "/Users/joshuakabel/Documents/Source/Repos/CWD/BlazorApp1/wwwroot/favicon.png",
@@ -37,12 +45,80 @@
       "PackagePath": "staticwebassets/imgs/EmmaPlc.jpg"
     },
     {
+      "Id": "/Users/joshuakabel/Documents/Source/Repos/CWD/BlazorApp1/wwwroot/imgs/ModelIMG.jpeg",
+      "PackagePath": "staticwebassets/imgs/ModelIMG.jpeg"
+    },
+    {
+      "Id": "/Users/joshuakabel/Documents/Source/Repos/CWD/BlazorApp1/wwwroot/imgs/ModelImage.jpeg",
+      "PackagePath": "staticwebassets/imgs/ModelImage.jpeg"
+    },
+    {
+      "Id": "/Users/joshuakabel/Documents/Source/Repos/CWD/BlazorApp1/wwwroot/imgs/ModelPlaatjeFinal.jpeg",
+      "PackagePath": "staticwebassets/imgs/ModelPlaatjeFinal.jpeg"
+    },
+    {
+      "Id": "/Users/joshuakabel/Documents/Source/Repos/CWD/BlazorApp1/wwwroot/imgs/ModelPlaatjeFinall.jpeg",
+      "PackagePath": "staticwebassets/imgs/ModelPlaatjeFinall.jpeg"
+    },
+    {
+      "Id": "/Users/joshuakabel/Documents/Source/Repos/CWD/BlazorApp1/wwwroot/imgs/ModelPlaatjeFix.jpeg",
+      "PackagePath": "staticwebassets/imgs/ModelPlaatjeFix.jpeg"
+    },
+    {
+      "Id": "/Users/joshuakabel/Documents/Source/Repos/CWD/BlazorApp1/wwwroot/imgs/WhatsApp Image 2024-04-22 at 23.29.42.jpeg",
+      "PackagePath": "staticwebassets/imgs/WhatsApp Image 2024-04-22 at 23.29.42.jpeg"
+    },
+    {
+      "Id": "/Users/joshuakabel/Documents/Source/Repos/CWD/BlazorApp1/wwwroot/imgs/assetlijst.png",
+      "PackagePath": "staticwebassets/imgs/assetlijst.png"
+    },
+    {
+      "Id": "/Users/joshuakabel/Documents/Source/Repos/CWD/BlazorApp1/wwwroot/imgs/bedrijfPlaatje.jpeg",
+      "PackagePath": "staticwebassets/imgs/bedrijfPlaatje.jpeg"
+    },
+    {
+      "Id": "/Users/joshuakabel/Documents/Source/Repos/CWD/BlazorApp1/wwwroot/imgs/dashboard.png",
+      "PackagePath": "staticwebassets/imgs/dashboard.png"
+    },
+    {
+      "Id": "/Users/joshuakabel/Documents/Source/Repos/CWD/BlazorApp1/wwwroot/imgs/emma.png",
+      "PackagePath": "staticwebassets/imgs/emma.png"
+    },
+    {
+      "Id": "/Users/joshuakabel/Documents/Source/Repos/CWD/BlazorApp1/wwwroot/imgs/grafiek.png",
+      "PackagePath": "staticwebassets/imgs/grafiek.png"
+    },
+    {
+      "Id": "/Users/joshuakabel/Documents/Source/Repos/CWD/BlazorApp1/wwwroot/imgs/home.png",
+      "PackagePath": "staticwebassets/imgs/home.png"
+    },
+    {
+      "Id": "/Users/joshuakabel/Documents/Source/Repos/CWD/BlazorApp1/wwwroot/imgs/house.jpeg",
+      "PackagePath": "staticwebassets/imgs/house.jpeg"
+    },
+    {
       "Id": "/Users/joshuakabel/Documents/Source/Repos/CWD/BlazorApp1/wwwroot/imgs/image.dot",
       "PackagePath": "staticwebassets/imgs/image.dot"
     },
     {
+      "Id": "/Users/joshuakabel/Documents/Source/Repos/CWD/BlazorApp1/wwwroot/imgs/image.png",
+      "PackagePath": "staticwebassets/imgs/image.png"
+    },
+    {
       "Id": "/Users/joshuakabel/Documents/Source/Repos/CWD/BlazorApp1/wwwroot/imgs/model.jpeg",
       "PackagePath": "staticwebassets/imgs/model.jpeg"
+    },
+    {
+      "Id": "/Users/joshuakabel/Documents/Source/Repos/CWD/BlazorApp1/wwwroot/imgs/modelFix.jpeg",
+      "PackagePath": "staticwebassets/imgs/modelFix.jpeg"
+    },
+    {
+      "Id": "/Users/joshuakabel/Documents/Source/Repos/CWD/BlazorApp1/wwwroot/imgs/modelplaatje.jpeg",
+      "PackagePath": "staticwebassets/imgs/modelplaatje.jpeg"
+    },
+    {
+      "Id": "/Users/joshuakabel/Documents/Source/Repos/CWD/BlazorApp1/wwwroot/imgs/simu.png",
+      "PackagePath": "staticwebassets/imgs/simu.png"
     },
     {
       "Id": "/Users/joshuakabel/Documents/Source/Repos/CWD/BlazorApp1/wwwroot/json.json",

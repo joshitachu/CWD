@@ -89,12 +89,34 @@ img[b-moxbu2d1in] {
     animation: fadeIn-b-moxbu2d1in 1s ease-in-out;
 }
 
-button:hover[b-moxbu2d1in], a:hover[b-moxbu2d1in] {
-    opacity: 0.8;
-    transition: opacity 0.3s ease;
+button[b-moxbu2d1in] {
+    background-color: #630D80;
+    color: #ffffff;
+    border: none;
+    padding: 8px 12px;
+    margin-top: auto;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: all .2s ease-in-out;
+    outline: none;
+    font-size: 14px;
 }
 
-h1[b-moxbu2d1in]{
-    text-align: center;
+button:hover[b-moxbu2d1in] {
+    transform: scale(1.05);
+}
 
+
+.disclaimer[b-moxbu2d1in] {
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.disclaimer-text[b-moxbu2d1in] {
+    font-size: 0.9em;
+    color: #666;
+    margin: 0;
 }

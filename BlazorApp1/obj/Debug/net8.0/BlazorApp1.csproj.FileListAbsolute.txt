@@ -47,3 +47,15 @@
 /Users/joshuakabel/Documents/Source/Repos/CWD/BlazorApp1/bin/Debug/net8.0/Microsoft.JSInterop.dll
 /Users/joshuakabel/Documents/Source/Repos/CWD/BlazorApp1/obj/Debug/net8.0/scopedcss/Components/Pages/Assets.razor.rz.scp.css
 /Users/joshuakabel/Documents/Source/Repos/CWD/BlazorApp1/bin/Debug/net8.0/Plotly.Blazor.dll
+/Users/joshuakabel/Documents/Source/Repos/CWD/BlazorApp1/obj/Debug/net8.0/scopedcss/Components/Pages/HomePage.razor.rz.scp.css
+/Users/joshuakabel/Documents/Source/Repos/CWD/BlazorApp1/obj/Debug/net8.0/scopedcss/Components/Pages/Handleiding.razor.rz.scp.css
+/Users/joshuakabel/Documents/Source/Repos/CWD/BlazorApp1/obj/Debug/net8.0/scopedcss/Components/Pages/Test.razor.rz.scp.css
+/Users/joshuakabel/Documents/Source/Repos/CWD/BlazorApp1/bin/Debug/net8.0/DinkToPdf.dll
+/Users/joshuakabel/Documents/Source/Repos/CWD/BlazorApp1/bin/Debug/net8.0/PdfSharp.Charting.dll
+/Users/joshuakabel/Documents/Source/Repos/CWD/BlazorApp1/bin/Debug/net8.0/PdfSharp.Quality.dll
+/Users/joshuakabel/Documents/Source/Repos/CWD/BlazorApp1/bin/Debug/net8.0/PdfSharp.Snippets.dll
+/Users/joshuakabel/Documents/Source/Repos/CWD/BlazorApp1/bin/Debug/net8.0/PdfSharp.System.dll
+/Users/joshuakabel/Documents/Source/Repos/CWD/BlazorApp1/bin/Debug/net8.0/PdfSharp.WPFonts.dll
+/Users/joshuakabel/Documents/Source/Repos/CWD/BlazorApp1/bin/Debug/net8.0/PdfSharp.dll
+/Users/joshuakabel/Documents/Source/Repos/CWD/BlazorApp1/bin/Debug/net8.0/de/PdfSharp.Charting.resources.dll
+/Users/joshuakabel/Documents/Source/Repos/CWD/BlazorApp1/bin/Debug/net8.0/de/PdfSharp.resources.dll

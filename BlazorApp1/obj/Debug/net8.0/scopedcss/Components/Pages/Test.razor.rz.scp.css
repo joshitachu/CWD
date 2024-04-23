@@ -1,0 +1,78 @@
+
+#image-container[b-o5cyh3pxzb] {
+    position: relative;
+    margin: 50px auto;
+    width: 600px; /* Adjust according to your image size */
+}
+
+#image-container img[b-o5cyh3pxzb] {
+    max-width: 100%;
+    height: auto;
+}
+
+map[b-o5cyh3pxzb] {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 10;
+}
+
+area[b-o5cyh3pxzb] {
+    outline: none;
+    cursor: pointer;
+}
+
+/* Styling the areas */
+area[b-o5cyh3pxzb] {
+    opacity: 0.5;
+    transition: opacity 0.3s ease;
+}
+
+area:hover[b-o5cyh3pxzb] {
+    opacity: 0.8;
+}
+
+/* Styling tooltips */
+area[title]:hover[b-o5cyh3pxzb]::after {
+    content: attr(title);
+    position: absolute;
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 14px;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    white-space: nowrap;
+}
+
+/* Styling polygons */
+area[shape="polygon"][b-o5cyh3pxzb] {
+    cursor: pointer;
+    transition: fill 0.3s ease;
+}
+
+area[shape="polygon"]:hover[b-o5cyh3pxzb] {
+    fill: #0099ff; /* Change color as desired */
+}
+
+/* Styling rectangles */
+area[shape="rect"][b-o5cyh3pxzb] {
+    cursor: pointer;
+    transition: fill 0.3s ease;
+}
+
+area[shape="rect"]:hover[b-o5cyh3pxzb] {
+    fill: #ff6600; /* Change color as desired */
+}
+
+/* Styling circles */
+area[shape="circle"][b-o5cyh3pxzb] {
+    cursor: pointer;
+    transition: fill 0.3s ease;
+}
+
+area[shape="circle"]:hover[b-o5cyh3pxzb] {
+    fill: #33cc33; /* Change color as desired */
+}

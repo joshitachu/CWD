@@ -10,7 +10,7 @@
   "installation": {
     "type": "DLLInstallatie",
     "init": {
-      "name": "De Lage Landen",
+      "name": "Amersfoort",
       "t0": "2023-01-01T00:00"
     },
     "assets": [

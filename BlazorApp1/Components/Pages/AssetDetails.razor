@@ -1,69 +1,144 @@
-@page "/assetDetails"
+@page "/assetDetails/"
 @inject AssetStateService AssetStateService
 @rendermode InteractiveServer
 @inject NavigationManager NavigationManager
+@inject IJSRuntime JSRuntime
 
 
-@if(selectedAsset != null){
-    <h2 style="margin-top: 0">@selectedAsset.Name Details</h2>
-    <br>
-    <br>
+@if(AssetStateService.SelectedAsset != null){
+      <div id="chart-container" style="width: 100%; height: 100%;">
+        <h2 style="margin-top: 0">@selectedAsset.Name Details</h2>
+    </div>
+
+}
+
+
+@if (AssetStateService.SelectedAsset != null && assetStateHistory.Recorded.Count() > 1)
+{
+
     
-    <h3>Properties:</h3>
-    
-    <table>
-        <tr>
-            <th>Property Name</th>
-            <th>Property Value</th>
-            <th>Property Editable</th>
-        </tr>
-        @foreach(var property in selectedAsset.Properties){
+
+        <PlotlyChart @ref="chart" @bind-Config="config" @bind-Layout="layout" @bind-Data="data"/>
+
+    <br>
+
+    <button @onclick="Isclicked">@button</button>
+
+    @if (Istrue && assetStateHistory.Recorded.Count() > 1)
+    {
+        <h3>Properties:</h3>
+
+        <table>
             <tr>
-                <td>@property.Name</td>
-                <td>@property.Value</td>
-                <td>@property.Editable</td>
+                <th>Property Name</th>
+                <th>Property Value</th>
+                <th>Property Editable</th>
             </tr>
-        }
-    </table>
+            @foreach (var property in selectedAsset.Properties)
+            {
+                <tr>
+                    <td>@property.Name</td>
+                    <td>@property.Value</td>
+                    <td>@property.Editable</td>
+                </tr>
+            }
+        </table>
 
-    <h3>Inputs/Outputs:</h3>
-    <table>
-        <tr>
-            <th>Name</th>
-            <th>Class</th>
-            <th>Description</th>
-        </tr>
-        @foreach(var output in selectedAsset.Outputs){
+        <h3>Inputs/Outputs:</h3>
+        <table>
             <tr>
-                <td>@output.Name</td>
-                <td>@output._Clazz</td>
-                <td>@output.Desc</td>
+                <th>Name</th>
+                <th>Class</th>
+                <th>Description</th>
             </tr>
-        }
-    </table>
-}else{
-
-    <p> No data availabe</p>
-
+            @foreach (var output in selectedAsset.Outputs)
+            {
+                <tr>
+                    <td>@output.Name</td>
+                    <td>@output._Clazz</td>
+                    <td>@output.Desc</td>
+                </tr>
+            }
+        </table>
+    }
+}
+else
+{
+    DataNotFound();
+    <p>@noData</p>
 }
 
 
 
 
 
+
+
 @code {
-    [Parameter]
+
+    public string noData;
+
+    public string button="Bekijk meer";
+    public string loading= "loading....";
+
+        string loadingText = "Loading...";
+
+
     public Asset SelectedAsset { get; set;}
 
     private Asset selectedAsset;
 
-    protected override void OnInitialized()
+    public Boolean Istrue;
+
+    public string test;
+
+      private AssetStateHistory assetStateHistory;
+    public string jsonAssetsHistory { get; set; }
+    public double currentX = 0;
+
+
+    public double list;
+    private PlotlyChart? chart;
+
+    private Plotly.Blazor.Config config = new Plotly.Blazor.Config();
+    private Plotly.Blazor.Layout layout = new Plotly.Blazor.Layout();
+    private IList<ITrace> data = new List<ITrace>();
+
+
+    
+
+    protected override async void OnInitialized()
     {
-        this.selectedAsset = AssetStateService.SelectedAsset;
-        AssetStateService.OnAssetSelectionChanged += HandleAssetSelectionChanged;
+
+       
+        
+        // Call StateHasChanged to trigger a re-render
+        
+
+        
+        selectedAsset = AssetStateService.SelectedAsset;
+        if(selectedAsset!= null){
+         jsonAssetsHistory = System.IO.File.ReadAllText($"wwwroot/{selectedAsset.Name}_history.json");
+        // Deserialize the JSON into the assetStateHistory object
+        assetStateHistory =  Newtonsoft.Json.JsonConvert.DeserializeObject<AssetStateHistory>(jsonAssetsHistory);
+            HandleAssetSelectionChanged();
+
+  
+            
+            }
+            
+
+        // Prepare the chart data after the JSON has been deserialized
+
+
+
+        PrepareChartData();
+            
+
+       
     }
 
-    private void HandleAssetSelectionChanged()
+     private void HandleAssetSelectionChanged()
     {
         selectedAsset = AssetStateService.SelectedAsset;
         StateHasChanged();
@@ -73,8 +148,10 @@
     {
         AssetStateService.OnAssetSelectionChanged -= HandleAssetSelectionChanged;
     }
-
-    private Dictionary<string, string> assetImagePaths = new Dictionary<string, string>
+    public void goBack(){
+        NavigationManager.NavigateTo("/Assets");
+    }
+      private Dictionary<string, string> assetImagePaths = new Dictionary<string, string>
 {
     { "EmmaPlc", "imgs/EmmaPlc.jpg" },
     { "AssetType2", "imgs/EmmaPlc" },
@@ -91,4 +168,115 @@ private string GetAssetImagePath(string assetType)
     return "imgs/default_image.png";
     }
 }
+
+private void PrepareChartData()
+{
+    // Clear existing data
+    data.Clear();
+
+    if (assetStateHistory != null)
+    {
+        // Define the start date (January 1) and end date (December 31)
+        DateTime startDate = new DateTime(2023, 1, 1);
+        DateTime endDate = new DateTime(2023, 12, 31);
+
+        // Calculate the total number of intervals (900 seconds) in the range
+        int totalIntervals = (int)(endDate - startDate).TotalSeconds / 900;
+
+        // Generate x-axis values representing timestamps at 15-minute intervals
+        List<DateTime> xValues = new List<DateTime>();
+        for (int i = 0; i < totalIntervals; i++)
+        {
+            DateTime currentDate = startDate.AddSeconds(i * 900);
+            xValues.Add(currentDate);
+        }
+
+        foreach (var record in assetStateHistory.Recorded)
+        {
+            List<double> yValues = record.Values; // Assuming record.Values is already a list of doubles
+
+            // Convert DateTime objects to object type
+            List<object> xValuesObjects = xValues.Select(x => (object)x).ToList();
+
+            // Add a new Scatter trace for each record
+            var scatter = new Scatter
+            {
+                Name = record.Name,
+
+                Mode = Plotly.Blazor.Traces.ScatterLib.ModeFlag.Lines,
+                X = xValuesObjects,
+                Y = yValues.Cast<object>().ToList() // Convert to list
+
+            };
+
+             layout = new Plotly.Blazor.Layout
+    {
+        XAxis= new List<Plotly.Blazor.LayoutLib.XAxis>
+            {
+                 new Plotly.Blazor.LayoutLib.XAxis
+            {
+                Title = new Plotly.Blazor.LayoutLib.XAxisLib.Title { Text="Datum" } // Set the x-axis title to "Time (kWh)"
+            }
+
+            },
+        YAxis = new List<Plotly.Blazor.LayoutLib.YAxis>
+        {
+            new Plotly.Blazor.LayoutLib.YAxis
+            {
+                Title = new Plotly.Blazor.LayoutLib.YAxisLib.Title { Text = record.Unit } // Set the x-axis title to "Time (kWh)"
+            }
+        }
+    };
+
+
+
+            // Add the Scatter trace to the data list
+            data.Add(scatter);
+        }
+    }
+   
+
+    // If needed, customize layout here, e.g., setting titles
 }
+
+
+public void Isclicked(){
+    if(button=="Bekijk meer"){
+        Istrue=true;
+        button="Bekijk minder";
+    }else{
+            BekijkMinder();
+
+    }
+}
+
+public void BekijkMinder(){
+    if(button=="Bekijk minder"){
+        Istrue=false;
+        button="Bekijk meer";
+    }
+}
+
+
+
+public async void LoadData(){
+    await Task.Delay(5000);
+    
+
+}
+
+public async void DataNotFound(){
+    await Task.Delay(5000);
+    noData="NO data available";
+    StateHasChanged(); // Notify Blazor to re-render the component
+
+    
+    
+}
+
+}
+
+
+
+
+

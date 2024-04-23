@@ -9,10 +9,10 @@ main[b-nz1yiwl0um] {
 }
 
 .sidebar[b-nz1yiwl0um] {
-    background-image: linear-gradient(180deg, rgb(5, 39, 103) 0%, #3a0647 70%);
+    background: linear-gradient(180deg, #4a125e, #005429);
 }
 
-.top-row[b-nz1yiwl0um] {
+.top-row[b-nz1yiwl0um] {  
     background-color: #f7f7f7;
     border-bottom: 1px solid #d6d5d5;
     justify-content: flex-end;
