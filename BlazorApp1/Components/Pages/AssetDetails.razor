@@ -4,6 +4,16 @@
 @inject NavigationManager NavigationManager
 @inject IJSRuntime JSRuntime
 
+<script>
+    window.downloadFile = function (contentType, fileName, content) {
+    var a = document.createElement("a");
+    var file = new Blob([content], { type: contentType });
+    a.href = URL.createObjectURL(file);
+    a.download = fileName;
+    a.click();
+};
+</script>
+
 
 @if(AssetStateService.SelectedAsset != null){
       <div id="chart-container" style="width: 100%; height: 100%;">
@@ -60,6 +70,8 @@
                 </tr>
             }
         </table>
+
+    <button @onclick="DownloadCSV">Download data as CSV</button>
     }
 }
 else
@@ -75,6 +87,8 @@ else
 
 
 @code {
+
+    
 
     public string noData;
 
@@ -274,7 +288,44 @@ public async void DataNotFound(){
     
 }
 
+private string ConvertJSONToCSV()
+{
+    StringBuilder csv = new StringBuilder();
+
+    // Add header row
+    csv.AppendLine("Values"); // Modify the column headers as needed
+
+    // Add data rows
+    foreach (var record in assetStateHistory.Recorded)
+    {
+        foreach (var value in record.Values)
+        {
+            csv.AppendLine($"\"{value}\"");
+        }
+    }
+
+    return csv.ToString();
 }
+
+    // Method to trigger the download of the CSV file
+    private async Task DownloadCSV()
+    {
+        // Convert JSON data to CSV format
+        string csvData = ConvertJSONToCSV();
+
+        // Prepare CSV file name
+        string fileName = $"{selectedAsset.Name}_data.csv";
+
+        // Trigger the download
+        
+        await JSRuntime.InvokeVoidAsync("downloadFile", "data:text/csv;charset=utf-8,", fileName, csvData);
+    }
+
+
+
+
+}
+
 
 
 

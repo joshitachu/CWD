@@ -9,6 +9,7 @@ builder.Services.AddRazorComponents()
 builder.Services.AddBlazorBootstrap();
 builder.Services.AddScoped<AssetStateService>();
 
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

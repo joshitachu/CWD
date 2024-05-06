@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "IEmFb228fIw1EuFTFpgTBZwCsDh64E8e8A7n5Fuh/fk=",
+  "Hash": "/eqcW7lx2KDDUEk7xogFYtuEfNzk7aJACEbrhia+Dz4=",
   "Source": "BlazorApp1",
   "BasePath": "_content/BlazorApp1",
   "Mode": "Default",
@@ -150,6 +150,25 @@
       "OriginalItemSpec": "/Users/joshuakabel/.nuget/packages/blazor.bootstrap/2.0.0/staticwebassets/pdfjs-4.0.379.worker.min.mjs"
     },
     {
+      "Identity": "/Users/joshuakabel/.nuget/packages/blazordownloadfile/2.4.0.2/staticwebassets/BlazorDownloadFileScript.js",
+      "SourceId": "BlazorDownloadFile",
+      "SourceType": "Package",
+      "ContentRoot": "/Users/joshuakabel/.nuget/packages/blazordownloadfile/2.4.0.2/staticwebassets/",
+      "BasePath": "_content/BlazorDownloadFile",
+      "RelativePath": "BlazorDownloadFileScript.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "/Users/joshuakabel/.nuget/packages/blazordownloadfile/2.4.0.2/staticwebassets/BlazorDownloadFileScript.js"
+    },
+    {
       "Identity": "/Users/joshuakabel/.nuget/packages/microsoft.aspnetcore.components.quickgrid/8.0.2/staticwebassets/Microsoft.AspNetCore.Components.QuickGrid.bundle.scp.css",
       "SourceId": "Microsoft.AspNetCore.Components.QuickGrid",
       "SourceType": "Package",
@@ -186,6 +205,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "/Users/joshuakabel/.nuget/packages/microsoft.aspnetcore.components.quickgrid/8.0.2/staticwebassets/QuickGrid.razor.js"
+    },
+    {
+      "Identity": "/Users/joshuakabel/.nuget/packages/microsoft.aspnetcore.components.webassembly.authentication/8.0.4/staticwebassets/AuthenticationService.js",
+      "SourceId": "Microsoft.AspNetCore.Components.WebAssembly.Authentication",
+      "SourceType": "Package",
+      "ContentRoot": "/Users/joshuakabel/.nuget/packages/microsoft.aspnetcore.components.webassembly.authentication/8.0.4/staticwebassets/",
+      "BasePath": "_content/Microsoft.AspNetCore.Components.WebAssembly.Authentication",
+      "RelativePath": "AuthenticationService.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "/Users/joshuakabel/.nuget/packages/microsoft.aspnetcore.components.webassembly.authentication/8.0.4/staticwebassets/AuthenticationService.js"
     },
     {
       "Identity": "/Users/joshuakabel/.nuget/packages/plotly.blazor/4.2.0/staticwebassets/plotly-interop.js",
@@ -775,6 +813,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot/imgs/WhatsApp Image 2024-04-22 at 23.29.42.jpeg"
+    },
+    {
+      "Identity": "/Users/joshuakabel/Documents/Source/Repos/CWD/BlazorApp1/wwwroot/interop.js",
+      "SourceId": "BlazorApp1",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Users/joshuakabel/Documents/Source/Repos/CWD/BlazorApp1/wwwroot/",
+      "BasePath": "_content/BlazorApp1",
+      "RelativePath": "interop.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/interop.js"
     },
     {
       "Identity": "/Users/joshuakabel/Documents/Source/Repos/CWD/BlazorApp1/wwwroot/json.json",

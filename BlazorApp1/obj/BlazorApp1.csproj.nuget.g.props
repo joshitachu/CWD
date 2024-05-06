@@ -14,7 +14,9 @@
   </ItemGroup>
   <ImportGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
     <Import Project="$(NuGetPackageRoot)plotly.blazor/4.2.0/buildTransitive/Plotly.Blazor.props" Condition="Exists('$(NuGetPackageRoot)plotly.blazor/4.2.0/buildTransitive/Plotly.Blazor.props')" />
+    <Import Project="$(NuGetPackageRoot)microsoft.aspnetcore.components.webassembly.authentication/8.0.4/buildTransitive/Microsoft.AspNetCore.Components.WebAssembly.Authentication.props" Condition="Exists('$(NuGetPackageRoot)microsoft.aspnetcore.components.webassembly.authentication/8.0.4/buildTransitive/Microsoft.AspNetCore.Components.WebAssembly.Authentication.props')" />
     <Import Project="$(NuGetPackageRoot)microsoft.aspnetcore.components.quickgrid/8.0.2/buildTransitive/Microsoft.AspNetCore.Components.QuickGrid.props" Condition="Exists('$(NuGetPackageRoot)microsoft.aspnetcore.components.quickgrid/8.0.2/buildTransitive/Microsoft.AspNetCore.Components.QuickGrid.props')" />
+    <Import Project="$(NuGetPackageRoot)blazordownloadfile/2.4.0.2/buildTransitive/BlazorDownloadFile.props" Condition="Exists('$(NuGetPackageRoot)blazordownloadfile/2.4.0.2/buildTransitive/BlazorDownloadFile.props')" />
     <Import Project="$(NuGetPackageRoot)blazor.bootstrap/2.0.0/buildTransitive/Blazor.Bootstrap.props" Condition="Exists('$(NuGetPackageRoot)blazor.bootstrap/2.0.0/buildTransitive/Blazor.Bootstrap.props')" />
   </ImportGroup>
 </Project>

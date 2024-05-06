@@ -121,6 +121,10 @@
       "PackagePath": "staticwebassets/imgs/simu.png"
     },
     {
+      "Id": "/Users/joshuakabel/Documents/Source/Repos/CWD/BlazorApp1/wwwroot/interop.js",
+      "PackagePath": "staticwebassets/interop.js"
+    },
+    {
       "Id": "/Users/joshuakabel/Documents/Source/Repos/CWD/BlazorApp1/wwwroot/json.json",
       "PackagePath": "staticwebassets/json.json"
     },
