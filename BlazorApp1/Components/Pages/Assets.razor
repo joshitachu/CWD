@@ -1,13 +1,16 @@
 @page "/Assets"
-@inject AssetStateService AssetStateService
 @rendermode InteractiveServer
 @inject NavigationManager NavigationManager
+@inject AssetService AssetService
+@inject AssetDataService AssetDataService
 
+<input type="text" class="form-control search-bar" placeholder="Search assets..." @bind="search" />
+<h1>Assets</h1>
+@if (assetJson != null)
+{
+    <p>Total assets: @assetJson.Count()</p>
+}
 
-<input  type="text" class="form-control search-bar" placeholder="Search assets..." @bind="search" />
-<h1> Assets</h1>
-<p>Total assets: @root.installation.assets.Count()</p>
- 
 <table class="table">
     <thead>
         <tr>
@@ -15,82 +18,61 @@
             <th>Asset Type</th>
             <th>Status</th>
             <th>View More</th>
-            
         </tr>
     </thead>
     <tbody>
-    @foreach (var asset in FilteredPagedAssets)
-    {
-        <tr>
-            <td>@asset.Name</td>
-            <td>@asset.Desc</td>
-            <td>                
-                <span style="color:green">&#x2714;</span> <!-- Check mark -->
-            </td>
-             <td>
-                <button @onclick="() => SelectAsset(asset.Name)">Select</button>
-            </td>
-        </tr>
-    }
+        @if (assetJson != null)
+        {
+            @foreach (var asset in FilteredPagedAssets)
+            {
+                <tr>
+                    <td>@asset.name</td>
+                    <td>@asset.desc</td>
+                    <td>
+                        <span style="color:green">&#x2714;</span> <!-- Check mark -->
+                    </td>
+                    <td>
+                        <button @onclick="() => SelectedAsset(asset.name)">Select</button>
+                    </td>
+                </tr>
+            }
+        }
+        else
+        {
+            <div class="loading-spinner-container">
+                <div class="loading-spinner">
+                    <div class="spinner"></div>
+                </div>
+            </div>
+        }
     </tbody>
 </table>
 
-
- @code {
-    
-    
-    private string json2;
-    private Root root;
-
-    
-
- 
-   
+@code {
     [Parameter]
-    public Asset selectedAsset { get; set; }
+    public Roott selectedAssett { get; set; }
+
+    public List<Roott> assetJson;
 
     [Parameter]
     public string test { get; set; }
 
-    protected override void OnInitialized()
+    protected override async Task OnInitializedAsync()
     {
-        json2 = System.IO.File.ReadAllText("wwwroot/Simulatie.json");
-
-        root = Newtonsoft.Json.JsonConvert.DeserializeObject<Root>(json2);
         
-            
+        assetJson = await AssetDataService.GetAssetsAsync();
     }
 
-
-    public void SelectAsset(string assetName)
+    public void SelectedAsset(string assetName)
     {
-        AssetStateService.SelectedAsset=root.installation.assets.FirstOrDefault(a => a.Name == assetName);
-        selectedAsset = root.installation.assets.FirstOrDefault(a => a.Name == assetName);
-        AssetStateService.SelectedAsset = selectedAsset;
+        AssetService.SelectedAsset = assetJson.FirstOrDefault(a => a.name == assetName);
+        selectedAssett = assetJson.FirstOrDefault(a => a.name == assetName);
+        AssetService.SelectedAsset = selectedAssett;
         NavigationManager.NavigateTo("/assetDetails");
     }
 
-    public void setAsset(){
-        
-    }
+    public string search { get; set; }
 
-    public string search {get;set;}
-
-    async Task Searching(){
-    
-    }
-
-    private IEnumerable<Asset> FilteredPagedAssets => 
-        root.installation.assets
-            .Where(asset => string.IsNullOrEmpty(search) || asset.Name.Contains(search, StringComparison.OrdinalIgnoreCase));
-
-
-   
-   
-   }
-
-  
-
-
-
- 
+    public IEnumerable<Roott> FilteredPagedAssets =>
+        assetJson?.Where(root => string.IsNullOrEmpty(search) || root.name.Contains(search, StringComparison.OrdinalIgnoreCase)) ?? Enumerable.Empty<Roott>();
+}

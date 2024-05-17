@@ -34,9 +34,7 @@
 /Users/joshuakabel/Documents/Source/Repos/CWD/BlazorApp1/obj/Debug/net8.0/BlazorApp1.csproj.CopyComplete
 /Users/joshuakabel/Documents/Source/Repos/CWD/BlazorApp1/obj/Debug/net8.0/BlazorApp1.sourcelink.json
 /Users/joshuakabel/Documents/Source/Repos/CWD/BlazorApp1/bin/Debug/net8.0/BlazorBootstrap.dll
-/Users/joshuakabel/Documents/Source/Repos/CWD/BlazorApp1/obj/Debug/net8.0/scopedcss/Components/Pages/SideBar.razor.rz.scp.css
 /Users/joshuakabel/Documents/Source/Repos/CWD/BlazorApp1/obj/Debug/net8.0/scopedcss/Components/Pages/AssetDetails.razor.rz.scp.css
-/Users/joshuakabel/Documents/Source/Repos/CWD/BlazorApp1/obj/Debug/net8.0/scopedcss/Components/Pages/Model.razor.rz.scp.css
 /Users/joshuakabel/Documents/Source/Repos/CWD/BlazorApp1/bin/Debug/net8.0/Microsoft.AspNetCore.Authorization.dll
 /Users/joshuakabel/Documents/Source/Repos/CWD/BlazorApp1/bin/Debug/net8.0/Microsoft.AspNetCore.Components.dll
 /Users/joshuakabel/Documents/Source/Repos/CWD/BlazorApp1/bin/Debug/net8.0/Microsoft.AspNetCore.Components.Forms.dll
@@ -49,8 +47,6 @@
 /Users/joshuakabel/Documents/Source/Repos/CWD/BlazorApp1/bin/Debug/net8.0/Plotly.Blazor.dll
 /Users/joshuakabel/Documents/Source/Repos/CWD/BlazorApp1/obj/Debug/net8.0/scopedcss/Components/Pages/HomePage.razor.rz.scp.css
 /Users/joshuakabel/Documents/Source/Repos/CWD/BlazorApp1/obj/Debug/net8.0/scopedcss/Components/Pages/Handleiding.razor.rz.scp.css
-/Users/joshuakabel/Documents/Source/Repos/CWD/BlazorApp1/obj/Debug/net8.0/scopedcss/Components/Pages/Test.razor.rz.scp.css
-/Users/joshuakabel/Documents/Source/Repos/CWD/BlazorApp1/bin/Debug/net8.0/DinkToPdf.dll
 /Users/joshuakabel/Documents/Source/Repos/CWD/BlazorApp1/bin/Debug/net8.0/PdfSharp.Charting.dll
 /Users/joshuakabel/Documents/Source/Repos/CWD/BlazorApp1/bin/Debug/net8.0/PdfSharp.Quality.dll
 /Users/joshuakabel/Documents/Source/Repos/CWD/BlazorApp1/bin/Debug/net8.0/PdfSharp.Snippets.dll
@@ -74,3 +70,5 @@
 /Users/joshuakabel/Documents/Source/Repos/CWD/BlazorApp1/bin/Debug/net8.0/Microsoft.Extensions.Localization.Abstractions.dll
 /Users/joshuakabel/Documents/Source/Repos/CWD/BlazorApp1/bin/Debug/net8.0/Microsoft.Extensions.Logging.Abstractions.dll
 /Users/joshuakabel/Documents/Source/Repos/CWD/BlazorApp1/bin/Debug/net8.0/Microsoft.JSInterop.WebAssembly.dll
+/Users/joshuakabel/Documents/Source/Repos/CWD/BlazorApp1/bin/Debug/net8.0/System.Net.Http.Formatting.dll
+/Users/joshuakabel/Documents/Source/Repos/CWD/BlazorApp1/bin/Debug/net8.0/Newtonsoft.Json.Bson.dll

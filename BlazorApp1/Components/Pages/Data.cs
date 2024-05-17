@@ -1,53 +1,10 @@
-public class Installation
+
+
+//selected asset in een service opslaan
+public class AssetService
 {
-    public string type { get; set; }
-    public Init Init { get; set; }
-    public List<Asset> assets { get; set; }
-}
-
-public class Init
-{
-    public string Name { get; set; }
-    public DateTime T0 { get; set; }
-}
-
-public class Asset
-{
-    public string Name { get; set; } = null!;
-    public string Desc { get; set; }
-    public string IconType { get; set; }
-    public List<Property> Properties { get; set; }
-    public List<InputOutput> Inputs { get; set; }
-    public List<InputOutput> Outputs { get; set; }
-}
-
-public class Property
-{
-    public string Name { get; set; }
-    public string Desc { get; set; }
-    public object Value { get; set; }
-    public bool Editable { get; set; }
-    public string _Clazz { get; set; }
-}
-
-public class InputOutput
-{
-    public string Name { get; set; }
-    public string Desc { get; set; }
-    public string _Clazz { get; set; }
-}
-
-public class Root
-{
-    public Installation installation { get; set; }
-}
-
-
-
-public class AssetStateService
-{
-    private Asset _selectedAsset;
-    public Asset SelectedAsset
+    private Roott _selectedAsset;
+    public Roott SelectedAsset
     {
         get => _selectedAsset;
         set
@@ -62,23 +19,139 @@ public class AssetStateService
     private void NotifyAssetSelectionChanged() => OnAssetSelectionChanged?.Invoke();
 }
 
-
- public class YourDataModel
+ public class Output
     {
         public string name { get; set; }
         public string desc { get; set; }
-        public List<RecordedData> recorded { get; set; }
+        public string _clazz { get; set; }
     }
 
-    public class RecordedData
+    public class Propertyy
     {
         public string name { get; set; }
         public string desc { get; set; }
-        public string unit { get; set; }
-        public string start { get; set; }
-        public double delta_t { get; set; }
-        public List<double> values { get; set; }
+        public object value { get; set; }
+        public bool editable { get; set; }
+        public string _clazz { get; set; }
     }
 
+    //data van de assets config
+
+    public class Roott
+    {
+        public string name { get; set; }
+        public string desc { get; set; }
+        public string icon_type { get; set; }
+        public List<Propertyy> properties { get; set; }
+        public List<object> inputs { get; set; }
+        public List<Output> outputs { get; set; }
+        public string _clazz { get; set; }
+    }
+
+
+
+
+//Data van de grafiek
+public class StatePropertyHistory
+{
+    public string name { get; set; }
+    public string desc { get; set; }
+    public string unit { get; set; }
+    public string Start { get; set; }
+    public double delta_t { get; set; }
+    public List<double> values { get; set; }
+    public string _clazz { get; set; }
+
+}
+
+public class AssetStateHistory
+{
+    public List<StatePropertyHistory> recorded { get; set; }
     
-    
+    public string desc { get; set; }
+
+    public string name{get;set;}
+}
+
+
+public class AssetDataService
+{
+    private readonly HttpClient _httpClient;
+    private readonly string _apiUrl = "http://35.159.80.93:5000/fetch_assets_config";
+    private readonly string _token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiY29fbWFrZXIifQ.NQYYS882LhzIyx7CrynwbRub8cf-6ic7KvGwyk77WC8";
+    private List<Roott> _assets;
+    private bool _isDataFetched = false;
+
+    public bool IsLoading { get; private set; } = false;
+
+    public AssetDataService(HttpClient httpClient)
+    {
+        _httpClient = httpClient;
+    }
+
+    public async Task<List<Roott>> GetAssetsAsync()
+    {
+        if (!_isDataFetched)
+        {
+            IsLoading = true;
+            _httpClient.DefaultRequestHeaders.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", _token);
+            _assets = await _httpClient.GetFromJsonAsync<List<Roott>>(_apiUrl);
+            _isDataFetched = true;
+            IsLoading = false;
+        }
+        return _assets;
+    }
+}
+
+
+public class SimulationDataService
+{
+    private readonly HttpClient _httpClient;
+    private readonly string _apiUrl = "http://35.159.80.93:5000/run_simulation";
+    private readonly string _token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiY29fbWFrZXIifQ.NQYYS882LhzIyx7CrynwbRub8cf-6ic7KvGwyk77WC8";
+    private List<AssetStateHistory> _bigData;
+    private bool _isDataFetched = false;
+
+    public bool IsLoading { get; private set; } = false;
+
+    public SimulationDataService(HttpClient httpClient)
+    {
+        _httpClient = httpClient;
+    }
+
+    public async Task<List<AssetStateHistory>> GetSimulationDataAsync()
+    {
+        if (!_isDataFetched)
+        {
+            IsLoading = true;
+
+            var payload = new
+            {
+                runner_update = new
+                {
+                    start = "2023-01-01T00:00:00",
+                    end = "2023-01-02T00:00:00",
+                    _clazz = "SimulationConfigJson"
+                },
+                assets_update = new object[] { },
+                _clazz = "RunSimulationEndpointRequest"
+            };
+
+            _httpClient.DefaultRequestHeaders.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", _token);
+            var responseMessage = await _httpClient.PostAsJsonAsync(_apiUrl, payload);
+
+            if (responseMessage != null)
+            {
+                var json = await responseMessage.Content.ReadAsStringAsync();
+                _bigData = Newtonsoft.Json.JsonConvert.DeserializeObject<List<AssetStateHistory>>(json);
+                _isDataFetched = true;
+            }
+
+            IsLoading = false;
+        }
+
+        return _bigData;
+    }
+}
+
+

@@ -7,7 +7,17 @@ builder.Services.AddRazorComponents()
     .AddInteractiveServerComponents();
 
 builder.Services.AddBlazorBootstrap();
-builder.Services.AddScoped<AssetStateService>();
+builder.Services.AddHttpClient(); // Registers HttpClient
+
+
+builder.Services.AddScoped<AssetService>();
+builder.Services.AddSingleton<AssetDataService>();
+builder.Services.AddSingleton<SimulationDataService>();
+
+
+
+
+
 
 
 var app = builder.Build();

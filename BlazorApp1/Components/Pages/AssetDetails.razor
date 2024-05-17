@@ -1,77 +1,109 @@
 @page "/assetDetails/"
-@inject AssetStateService AssetStateService
 @rendermode InteractiveServer
 @inject NavigationManager NavigationManager
 @inject IJSRuntime JSRuntime
+@inject AssetService AssetService
+@inject SimulationDataService SimulationDataService
 
 <script>
     window.downloadFile = function (contentType, fileName, content) {
-    var a = document.createElement("a");
-    var file = new Blob([content], { type: contentType });
-    a.href = URL.createObjectURL(file);
-    a.download = fileName;
-    a.click();
-};
+        var a = document.createElement("a");
+        var file = new Blob([content], { type: contentType });
+        a.href = URL.createObjectURL(file);
+        a.download = fileName;
+        a.click();
+    };
 </script>
 
-
-@if(AssetStateService.SelectedAsset != null){
-      <div id="chart-container" style="width: 100%; height: 100%;">
-        <h2 style="margin-top: 0">@selectedAsset.Name Details</h2>
+@if (AssetService.SelectedAsset != null)
+{
+    <div id="chart-container" style="width: 100%; height: 100%;">
+        <h2 style="margin-top: 0">@asset.name Details</h2>
     </div>
 
-}
-
-
-@if (AssetStateService.SelectedAsset != null && assetStateHistory.Recorded.Count() > 1)
-{
-
-    
-
-        <PlotlyChart @ref="chart" @bind-Config="config" @bind-Layout="layout" @bind-Data="data"/>
+    @if (EditState)
+    {
+        <button class="top-right-button" @onclick="RunUpdated">Run with New Values</button>
+    }
 
     <br>
+    <h3>Properties:</h3>
+    <table>
+        <tr>
+            <th>Property Name</th>
+            <th>Property Value</th>
+            <th>Property Editable</th>
+            <th>Edit</th>
+        </tr>
+        @foreach (var property in asset.properties)
+        {
+            <tr>
+                <td>@property.name</td>
+                <td>@property.value</td>
+                <td>@property.editable</td>
+                <td>
+                    @if (property.editable)
+                    {
+                        <button @onclick="() => OpenPopup(property)">Edit</button>
+                    }
+                </td>
+            </tr>
+        }
+    </table>
 
-    <button @onclick="Isclicked">@button</button>
-
-    @if (Istrue && assetStateHistory.Recorded.Count() > 1)
+    @if (showPopup)
     {
-        <h3>Properties:</h3>
+        <div class="popup-container">
+            <div class="popup">
+                <label for="propertyName">@editedProperty.name:</label>
+                <br><br>
+                <label for="propertyValue">Property Value:</label>
+                <input type="text" id="propertyValue" @oninput="UpdatePropertyValue">
+                <br><br>
+                <button @onclick="SaveChanges">Save Changes</button>
+                <button @onclick="ClosePopup">Cancel</button>
+            </div>
+        </div>
+    }
 
-        <table>
+    <h3>Inputs/Outputs:</h3>
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Class</th>
+            <th>Description</th>
+        </tr>
+        @foreach (var output in asset.outputs)
+        {
             <tr>
-                <th>Property Name</th>
-                <th>Property Value</th>
-                <th>Property Editable</th>
+                <td>@output.name</td>
+                <td>@output._clazz</td>
+                <td>@output.desc</td>
             </tr>
-            @foreach (var property in selectedAsset.Properties)
-            {
-                <tr>
-                    <td>@property.Name</td>
-                    <td>@property.Value</td>
-                    <td>@property.Editable</td>
-                </tr>
-            }
-        </table>
+        }
+    </table>
 
-        <h3>Inputs/Outputs:</h3>
-        <table>
-            <tr>
-                <th>Name</th>
-                <th>Class</th>
-                <th>Description</th>
-            </tr>
-            @foreach (var output in selectedAsset.Outputs)
-            {
-                <tr>
-                    <td>@output.Name</td>
-                    <td>@output._Clazz</td>
-                    <td>@output.Desc</td>
-                </tr>
-            }
-        </table>
+    <button @onclick="GetData">Run Simulatie</button>
 
-    <button @onclick="DownloadCSV">Download data as CSV</button>
+    @if (Istrue)
+    {
+        @if (SimulationDataService.IsLoading)
+        {
+            <div class="loading-spinner-container">
+                <div class="loading-spinner">
+                    <div class="spinner"></div>
+                </div>
+            </div>
+        }
+        else if (bigData != null)
+        {
+            @foreach (var chartData in chartDataList)
+            {
+                <PlotlyChart @ref="chart" @bind-Config="chartData.Config" @bind-Layout="chartData.Layout" @bind-Data="chartData.Data" />
+            }
+            <button @onclick="DownloadCSV">Download data as CSV</button>
+            <button @onclick="endSim">End simulation</button>
+        }
     }
 }
 else
@@ -80,254 +112,269 @@ else
     <p>@noData</p>
 }
 
-
-
-
-
-
-
 @code {
+    public string simText = "Run Simulatie";
+    List<Propertyy> editedProperties = new List<Propertyy>();
 
-    
-
+    public string PropertyValue;
+    HttpClient httpClient = new HttpClient();
+    public bool showPopup;
+    public Propertyy editedProperty;
+    string editedPropertyName;
+    object editedPropertyValue;
+    private string changedValue;
+    private bool EditState;
+    public string unit;
+    public List<AssetStateHistory> bigData;
     public string noData;
-
-    public string button="Bekijk meer";
-    public string loading= "loading....";
-
-        string loadingText = "Loading...";
-
-
-    public Asset SelectedAsset { get; set;}
-
-    private Asset selectedAsset;
-
-    public Boolean Istrue;
-
-    public string test;
-
-      private AssetStateHistory assetStateHistory;
-    public string jsonAssetsHistory { get; set; }
-    public double currentX = 0;
-
-
+    public string StartTime;
+    public string endTime;
+    public Roott asset;
+    public Boolean Istrue = true;
     public double list;
     private PlotlyChart? chart;
+    private List<ChartData> chartDataList = new List<ChartData>();
 
-    private Plotly.Blazor.Config config = new Plotly.Blazor.Config();
-    private Plotly.Blazor.Layout layout = new Plotly.Blazor.Layout();
-    private IList<ITrace> data = new List<ITrace>();
-
-
-    
-
-    protected override async void OnInitialized()
+    protected override async Task OnInitializedAsync()
     {
-
-       
-        
-        // Call StateHasChanged to trigger a re-render
-        
-
-        
-        selectedAsset = AssetStateService.SelectedAsset;
-        if(selectedAsset!= null){
-         jsonAssetsHistory = System.IO.File.ReadAllText($"wwwroot/{selectedAsset.Name}_history.json");
-        // Deserialize the JSON into the assetStateHistory object
-        assetStateHistory =  Newtonsoft.Json.JsonConvert.DeserializeObject<AssetStateHistory>(jsonAssetsHistory);
-            HandleAssetSelectionChanged();
-
-  
-            
-            }
-            
-
-        // Prepare the chart data after the JSON has been deserialized
-
-
-
-        PrepareChartData();
-            
-
-       
+        asset = AssetService.SelectedAsset;
     }
 
-     private void HandleAssetSelectionChanged()
+    public void goBack()
     {
-        selectedAsset = AssetStateService.SelectedAsset;
+        NavigationManager.NavigateTo("/Assets");
+    }
+
+    private Dictionary<string, string> assetImagePaths = new Dictionary<string, string>
+    {
+        { "EmmaPlc", "imgs/EmmaPlc.jpg" },
+        { "AssetType2", "imgs/EmmaPlc" },
+    };
+
+    private string GetAssetImagePath(string assetType)
+    {
+        if (assetType != null && assetImagePaths.ContainsKey(assetType))
+        {
+            return assetImagePaths[assetType];
+        }
+        else
+        {
+            return "imgs/default_image.png";
+        }
+    }
+
+    private async Task PrepareChartData()
+    {
+        chartDataList.Clear();
+
+        if (bigData != null)
+        {
+            DateTime startDate = DateTime.Parse(StartTime);
+            DateTime endDate = DateTime.Parse(endTime);
+            int totalIntervals = (int)(endDate - startDate).TotalSeconds / 900;
+            List<DateTime> xValues = new List<DateTime>();
+            for (int i = 0; i < totalIntervals; i++)
+            {
+                DateTime currentDate = startDate.AddSeconds(i * 900);
+                xValues.Add(currentDate);
+            }
+
+            foreach (var record in bigData)
+            {
+                if (record.name.Equals(asset.name, StringComparison.OrdinalIgnoreCase))
+                {
+                    foreach (var recorded in record.recorded)
+                    {
+                        List<double> yValues = new List<double>();
+                        if (recorded.values != null)
+                        {
+                            foreach (var value in recorded.values)
+                            {
+                                yValues.Add(value);
+                            }
+
+                            List<object> xValuesObjects = xValues.Select(x => (object)x).ToList();
+                            var scatter = new Scatter
+                            {
+                                Name = recorded.name,
+                                Mode = Plotly.Blazor.Traces.ScatterLib.ModeFlag.Lines,
+                                X = xValuesObjects,
+                                Y = yValues.Cast<object>().ToList()
+                            };
+
+                            var layout = new Plotly.Blazor.Layout
+                            {
+                                Title = new Plotly.Blazor.LayoutLib.Title
+                                {
+                                    Text = recorded.name
+                                },
+                                XAxis = new List<Plotly.Blazor.LayoutLib.XAxis>
+                                {
+                                    new Plotly.Blazor.LayoutLib.XAxis
+                                    {
+                                        Title = new Plotly.Blazor.LayoutLib.XAxisLib.Title { Text = "Datum" }
+                                    }
+                                },
+                                YAxis = new List<Plotly.Blazor.LayoutLib.YAxis>
+                                {
+                                    new Plotly.Blazor.LayoutLib.YAxis
+                                    {
+                                        Title = new Plotly.Blazor.LayoutLib.YAxisLib.Title { Text = unit }
+                                    }
+                                }
+                            };
+
+                            chartDataList.Add(new ChartData
+                            {
+                                Data = new List<ITrace> { scatter },
+                                Layout = layout,
+                                Config = new Plotly.Blazor.Config()
+                            });
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    public async void DataNotFound()
+    {
+        await Task.Delay(5000);
+        noData = "NO data available";
         StateHasChanged();
     }
 
-    public void Dispose()
+    private string ConvertJSONToCSV()
     {
-        AssetStateService.OnAssetSelectionChanged -= HandleAssetSelectionChanged;
-    }
-    public void goBack(){
-        NavigationManager.NavigateTo("/Assets");
-    }
-      private Dictionary<string, string> assetImagePaths = new Dictionary<string, string>
-{
-    { "EmmaPlc", "imgs/EmmaPlc.jpg" },
-    { "AssetType2", "imgs/EmmaPlc" },
-    // Add more mappings as needed
-};
-
-private string GetAssetImagePath(string assetType)
-{
-    if (assetType != null && assetImagePaths.ContainsKey(assetType))
-    {
-        return assetImagePaths[assetType];
-    }else{
-    // Return a default image path if the asset type is not found
-    return "imgs/default_image.png";
-    }
-}
-
-private void PrepareChartData()
-{
-    // Clear existing data
-    data.Clear();
-
-    if (assetStateHistory != null)
-    {
-        // Define the start date (January 1) and end date (December 31)
-        DateTime startDate = new DateTime(2023, 1, 1);
-        DateTime endDate = new DateTime(2023, 12, 31);
-
-        // Calculate the total number of intervals (900 seconds) in the range
-        int totalIntervals = (int)(endDate - startDate).TotalSeconds / 900;
-
-        // Generate x-axis values representing timestamps at 15-minute intervals
-        List<DateTime> xValues = new List<DateTime>();
-        for (int i = 0; i < totalIntervals; i++)
+        StringBuilder csv = new StringBuilder();
+        int y = 900;
+        csv.AppendLine("DeltaT(sec), Value");
+        foreach (var sim in bigData)
         {
-            DateTime currentDate = startDate.AddSeconds(i * 900);
-            xValues.Add(currentDate);
-        }
-
-        foreach (var record in assetStateHistory.Recorded)
-        {
-            List<double> yValues = record.Values; // Assuming record.Values is already a list of doubles
-
-            // Convert DateTime objects to object type
-            List<object> xValuesObjects = xValues.Select(x => (object)x).ToList();
-
-            // Add a new Scatter trace for each record
-            var scatter = new Scatter
+            foreach (var recorded in sim.recorded)
             {
-                Name = record.Name,
-
-                Mode = Plotly.Blazor.Traces.ScatterLib.ModeFlag.Lines,
-                X = xValuesObjects,
-                Y = yValues.Cast<object>().ToList() // Convert to list
-
-            };
-
-             layout = new Plotly.Blazor.Layout
-    {
-        XAxis= new List<Plotly.Blazor.LayoutLib.XAxis>
-            {
-                 new Plotly.Blazor.LayoutLib.XAxis
-            {
-                Title = new Plotly.Blazor.LayoutLib.XAxisLib.Title { Text="Datum" } // Set the x-axis title to "Time (kWh)"
+                foreach (var values in recorded.values)
+                {
+                    csv.AppendLine($"{y}, {values}");
+                }
             }
-
-            },
-        YAxis = new List<Plotly.Blazor.LayoutLib.YAxis>
-        {
-            new Plotly.Blazor.LayoutLib.YAxis
-            {
-                Title = new Plotly.Blazor.LayoutLib.YAxisLib.Title { Text = record.Unit } // Set the x-axis title to "Time (kWh)"
-            }
+            y += 900;
         }
-    };
-
-
-
-            // Add the Scatter trace to the data list
-            data.Add(scatter);
-        }
-    }
-   
-
-    // If needed, customize layout here, e.g., setting titles
-}
-
-
-public void Isclicked(){
-    if(button=="Bekijk meer"){
-        Istrue=true;
-        button="Bekijk minder";
-    }else{
-            BekijkMinder();
-
-    }
-}
-
-public void BekijkMinder(){
-    if(button=="Bekijk minder"){
-        Istrue=false;
-        button="Bekijk meer";
-    }
-}
-
-
-
-public async void LoadData(){
-    await Task.Delay(5000);
-    
-
-}
-
-public async void DataNotFound(){
-    await Task.Delay(5000);
-    noData="NO data available";
-    StateHasChanged(); // Notify Blazor to re-render the component
-
-    
-    
-}
-
-private string ConvertJSONToCSV()
-{
-    StringBuilder csv = new StringBuilder();
-
-    // Add header row
-    csv.AppendLine("Values"); // Modify the column headers as needed
-
-    // Add data rows
-    foreach (var record in assetStateHistory.Recorded)
-    {
-        foreach (var value in record.Values)
-        {
-            csv.AppendLine($"\"{value}\"");
-        }
+        return csv.ToString();
     }
 
-    return csv.ToString();
-}
-
-    // Method to trigger the download of the CSV file
     private async Task DownloadCSV()
     {
-        // Convert JSON data to CSV format
         string csvData = ConvertJSONToCSV();
-
-        // Prepare CSV file name
-        string fileName = $"{selectedAsset.Name}_data.csv";
-
-        // Trigger the download
-        
+        string fileName = "_data.csv";
         await JSRuntime.InvokeVoidAsync("downloadFile", "data:text/csv;charset=utf-8,", fileName, csvData);
     }
 
+    private async Task GetData()
+    {
+        if (SimulationDataService.IsLoading)
+            return;
 
+        bigData = await SimulationDataService.GetSimulationDataAsync();
+        if (bigData != null)
+        {
+            StartTime = "2023-01-01T00:00:00";
+            endTime = "2023-01-02T00:00:00";
+            await PrepareChartData();
+            Istrue = true;
+            StateHasChanged();
+        }
+    }
 
+    public void OpenPopup(Propertyy property)
+    {
+        this.editedProperty = property;
+        showPopup = true;
+        editedPropertyName = editedProperty.name;
+        PropertyValue = editedProperty.value.ToString();
+        editedProperties.Add(property);
+    }
 
+    public void UpdatePropertyValue(ChangeEventArgs e)
+    {
+        PropertyValue = e.Value.ToString();
+    }
+
+    public async void ClosePopup()
+    {
+        showPopup = false;
+    }
+
+    async void SaveChanges()
+    {
+        EditState = true;
+        if (editedProperty != null)
+        {
+            editedProperty.value = int.Parse(PropertyValue);
+        }
+
+        ClosePopup();
+    }
+
+    public async void RunUpdated()
+    {
+        if (editedProperty != null)
+        {
+            var payload = new
+            {
+                runner_update = new
+                {
+                    start = "2023-01-01T00:00:00",
+                    end = "2023-01-02T00:00:00",
+                    _clazz = "SimulationConfigJson"
+                },
+                assets_update = new[]
+                {
+                    new
+                    {
+                        name = "Batterij",
+                        desc = "Batterij",
+                        icon_type = "OTHER",
+                        properties = editedProperties,
+                        inputs = new object[] { },
+                        outputs = new object[] { },
+                        _clazz = "AssetJson"
+                    }
+                },
+                _clazz = "RunSimulationEndpointRequest"
+            };
+
+            this.endTime = payload.runner_update.end;
+            this.StartTime = payload.runner_update.start;
+
+            var upirl = "http://35.159.80.93:5000/run_simulation";
+            var token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiY29fbWFrZXIifQ.NQYYS882LhzIyx7CrynwbRub8cf-6ic7KvGwyk77WC8";
+            httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
+
+            var responseMessage = await httpClient.PostAsJsonAsync(upirl, payload);
+
+            if (responseMessage != null)
+            {
+                var json = await responseMessage.Content.ReadAsStringAsync();
+                bigData = Newtonsoft.Json.JsonConvert.DeserializeObject<List<AssetStateHistory>>(json);
+                await PrepareChartData();
+                Istrue = true;
+                StateHasChanged();
+            }
+        }
+    }
+
+    public void endSim()
+    {
+        Istrue = false;
+        EditState = false;
+        StateHasChanged();
+    }
+
+    public class ChartData
+    {
+        public Plotly.Blazor.Config Config { get; set; }
+        public Plotly.Blazor.Layout Layout { get; set; }
+        public IList<ITrace> Data { get; set; }
+    }
 }
-
-
-
-
-
-

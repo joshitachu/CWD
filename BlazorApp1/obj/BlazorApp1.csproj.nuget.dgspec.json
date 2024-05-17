@@ -50,9 +50,9 @@
               "target": "Package",
               "version": "[32.0.1, )"
             },
-            "DinkToPdf": {
+            "Microsoft.AspNet.WebApi.Client": {
               "target": "Package",
-              "version": "[1.0.8-beta5, )"
+              "version": "[6.0.0, )"
             },
             "Microsoft.AspNetCore.Components.QuickGrid": {
               "target": "Package",

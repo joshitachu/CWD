@@ -1,0 +1,119 @@
+body[b-5xcum0xatk] {
+    font-family: 'Arial', sans-serif;/* Light grey background */
+    color: #333; /* Dark grey text */
+    margin: 0;
+    padding: 20px;
+}
+
+.table-container[b-5xcum0xatk] {
+    background-color: black;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    border-radius: 4px; /* Rounded corners for the container */
+    overflow-x: auto;
+    margin-bottom: 20px;
+    padding: 15px;
+}
+
+.table[b-5xcum0xatk] {
+    background-color: black;
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 10px;
+}
+
+.table th[b-5xcum0xatk], .table td[b-5xcum0xatk] {
+    padding: 12px 8px; /* More padding for a spacious layout */
+    text-align: left;
+    border-bottom: 1px solid #e0e0e0; /* Light grey border for separation */
+}
+
+.table th[b-5xcum0xatk] {
+    background-color: #fafafa; /* Very light grey for header */
+    font-weight: normal; /* Typically QuickGrid headers are not bold */
+}
+
+.table tr:nth-child(even)[b-5xcum0xatk] {
+}
+
+/* Adjust button styles as needed */
+
+.pagination[b-5xcum0xatk] {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    padding: 0;
+}
+
+.pagination .page-item[b-5xcum0xatk] {
+    margin: 0 5px;
+}
+
+.pagination .page-link[b-5xcum0xatk] {
+    color: #333;
+    padding: 5px 10px;
+    text-decoration: none;
+    background-color: #e9ecef;
+    border-radius: 4px;
+}
+
+.pagination .page-item.active .page-link[b-5xcum0xatk],
+.pagination .page-link:hover[b-5xcum0xatk] {
+    background-color: #007bff;
+    color: white;
+}
+
+
+button[b-5xcum0xatk] {
+    background-color: #630D80;
+    color: #ffffff;
+    border: none;
+    padding: 8px 12px;
+    margin-top: auto;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: all .2s ease-in-out;
+    outline: none;
+    font-size: 14px;
+}
+
+button:hover[b-5xcum0xatk] {
+    transform: scale(1.05);
+}
+
+/* Ensure to style your select element and any other controls as needed */
+
+/* Continue with additional styles for form elements, buttons, etc. */
+
+/* Scrollbar Styles */
+/* ... */
+
+/* Additional styles */
+/* ... */
+
+
+.form-control[b-5xcum0xatk]{
+    float: right;
+
+}
+
+.search-bar-container[b-5xcum0xatk] {
+    text-align: right;
+    margin-right: 20px;
+}
+
+.search-bar[b-5xcum0xatk] {
+    width: 200px;
+    display: inline-block;
+}
+
+
+label[b-5xcum0xatk]{
+    width: 500px;
+    height: 200px;
+    position: relative;
+    display: block;
+    background: #ebebeb;
+    border-radius: 20px;
+    box-shadow: inset 0px 5px 15px rgba(0,0,0,4), inset 0px -5px -15px rgba(255,255,255,0.4);
+    cursor: pointer;
+}

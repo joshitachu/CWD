@@ -17,6 +17,10 @@
       "PackagePath": "staticwebassets/Kantoren Elektra_history.json"
     },
     {
+      "Id": "/Users/joshuakabel/Documents/Source/Repos/CWD/BlazorApp1/wwwroot/NewFIle.json",
+      "PackagePath": "staticwebassets/NewFIle.json"
+    },
+    {
       "Id": "/Users/joshuakabel/Documents/Source/Repos/CWD/BlazorApp1/wwwroot/Simulatie.json",
       "PackagePath": "staticwebassets/Simulatie.json"
     },
@@ -43,6 +47,26 @@
     {
       "Id": "/Users/joshuakabel/Documents/Source/Repos/CWD/BlazorApp1/wwwroot/imgs/EmmaPlc.jpg",
       "PackagePath": "staticwebassets/imgs/EmmaPlc.jpg"
+    },
+    {
+      "Id": "/Users/joshuakabel/Documents/Source/Repos/CWD/BlazorApp1/wwwroot/imgs/Img1.jpeg",
+      "PackagePath": "staticwebassets/imgs/Img1.jpeg"
+    },
+    {
+      "Id": "/Users/joshuakabel/Documents/Source/Repos/CWD/BlazorApp1/wwwroot/imgs/Img2.jpeg",
+      "PackagePath": "staticwebassets/imgs/Img2.jpeg"
+    },
+    {
+      "Id": "/Users/joshuakabel/Documents/Source/Repos/CWD/BlazorApp1/wwwroot/imgs/Img3.jpeg",
+      "PackagePath": "staticwebassets/imgs/Img3.jpeg"
+    },
+    {
+      "Id": "/Users/joshuakabel/Documents/Source/Repos/CWD/BlazorApp1/wwwroot/imgs/Img4.jpeg",
+      "PackagePath": "staticwebassets/imgs/Img4.jpeg"
+    },
+    {
+      "Id": "/Users/joshuakabel/Documents/Source/Repos/CWD/BlazorApp1/wwwroot/imgs/Img5.jpeg",
+      "PackagePath": "staticwebassets/imgs/Img5.jpeg"
     },
     {
       "Id": "/Users/joshuakabel/Documents/Source/Repos/CWD/BlazorApp1/wwwroot/imgs/ModelIMG.jpeg",
@@ -131,10 +155,6 @@
     {
       "Id": "/Users/joshuakabel/Documents/Source/Repos/CWD/BlazorApp1/wwwroot/test.css",
       "PackagePath": "staticwebassets/test.css"
-    },
-    {
-      "Id": "/Users/joshuakabel/Documents/Source/Repos/CWD/BlazorApp1/wwwroot/test.json",
-      "PackagePath": "staticwebassets/test.json"
     },
     {
       "Id": "obj/Debug/net8.0/staticwebassets/msbuild.BlazorApp1.Microsoft.AspNetCore.StaticWebAssets.props",
