@@ -2,7 +2,7 @@ using BlazorApp1.Components;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// builder.WebHost.UseUrls($"http://*:5003");
+builder.WebHost.UseUrls($"http://*:5003");
 
 // Add services to the container.
 builder.Services.AddRazorComponents()
