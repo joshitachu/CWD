@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "Ewab5piX0S2/IeV3knnTKsEOib75zrGC4w4AGWcZdCWQ3Q7CLfEhe93PjuN9RFS+YPm05RyxI3jiuQhyDEEgRw==",
+  "dgSpecHash": "LesBAO5iGlmSvrsrjfleznWr/5jNTOE7mnM0jYMovXmQZ79uBArdSSRng/UQ9DgA9cF26C0YYDl/gC86/6keIQ==",
   "success": true,
   "projectFilePath": "/Users/joshuakabel/Documents/Source/Repos/CWD/BlazorApp1/BlazorApp1.csproj",
   "expectedPackageFiles": [
@@ -70,8 +70,7 @@
     "/Users/joshuakabel/.nuget/packages/system.text.encoding.codepages/8.0.0/system.text.encoding.codepages.8.0.0.nupkg.sha512",
     "/Users/joshuakabel/.nuget/packages/system.text.encodings.web/8.0.0/system.text.encodings.web.8.0.0.nupkg.sha512",
     "/Users/joshuakabel/.nuget/packages/system.text.json/8.0.0/system.text.json.8.0.0.nupkg.sha512",
-    "/Users/joshuakabel/.nuget/packages/system.threading.tasks.extensions/4.5.4/system.threading.tasks.extensions.4.5.4.nupkg.sha512",
-    "/Users/joshuakabel/.nuget/packages/microsoft.netcore.app.host.win-x64/8.0.1/microsoft.netcore.app.host.win-x64.8.0.1.nupkg.sha512"
+    "/Users/joshuakabel/.nuget/packages/system.threading.tasks.extensions/4.5.4/system.threading.tasks.extensions.4.5.4.nupkg.sha512"
   ],
   "logs": []
 }
