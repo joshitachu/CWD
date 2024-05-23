@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "LesBAO5iGlmSvrsrjfleznWr/5jNTOE7mnM0jYMovXmQZ79uBArdSSRng/UQ9DgA9cF26C0YYDl/gC86/6keIQ==",
+  "dgSpecHash": "Z2qfPrI8M3EMh1/nv9teF5hIHrqF44VHTyTP3SKIaS6nnq+l3Xf2tjdrRZtHSynfK14YrpbADibUZ00R9klrww==",
   "success": true,
   "projectFilePath": "/Users/joshuakabel/Documents/Source/Repos/CWD/BlazorApp1/BlazorApp1.csproj",
   "expectedPackageFiles": [
@@ -19,7 +19,6 @@
     "/Users/joshuakabel/.nuget/packages/microsoft.aspnetcore.components.analyzers/8.0.4/microsoft.aspnetcore.components.analyzers.8.0.4.nupkg.sha512",
     "/Users/joshuakabel/.nuget/packages/microsoft.aspnetcore.components.authorization/8.0.4/microsoft.aspnetcore.components.authorization.8.0.4.nupkg.sha512",
     "/Users/joshuakabel/.nuget/packages/microsoft.aspnetcore.components.forms/8.0.4/microsoft.aspnetcore.components.forms.8.0.4.nupkg.sha512",
-    "/Users/joshuakabel/.nuget/packages/microsoft.aspnetcore.components.quickgrid/8.0.2/microsoft.aspnetcore.components.quickgrid.8.0.2.nupkg.sha512",
     "/Users/joshuakabel/.nuget/packages/microsoft.aspnetcore.components.web/8.0.4/microsoft.aspnetcore.components.web.8.0.4.nupkg.sha512",
     "/Users/joshuakabel/.nuget/packages/microsoft.aspnetcore.components.webassembly/8.0.4/microsoft.aspnetcore.components.webassembly.8.0.4.nupkg.sha512",
     "/Users/joshuakabel/.nuget/packages/microsoft.aspnetcore.components.webassembly.authentication/8.0.4/microsoft.aspnetcore.components.webassembly.authentication.8.0.4.nupkg.sha512",
