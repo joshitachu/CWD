@@ -1,0 +1,504 @@
+{
+    "assets": [
+    {
+        "name": "Kantoor",
+        "desc": "Kantoor",
+        "icon_type": "OTHER",
+        "properties": [],
+        "inputs": [],
+        "outputs": [
+            {
+                "name": "output_power",
+                "desc": "power",
+                "_clazz": "OutputJson"
+            }
+        ],
+        "_clazz": "AssetJson"
+    },
+    {
+        "name": "Zon Instraling",
+        "desc": "Zon Instraling",
+        "icon_type": "OTHER",
+        "properties": [],
+        "inputs": [],
+        "outputs": [
+            {
+                "name": "output_radiation",
+                "desc": "radiation",
+                "_clazz": "OutputJson"
+            }
+        ],
+        "_clazz": "AssetJson"
+    },
+    {
+        "name": "EPEX",
+        "desc": "EPEX",
+        "icon_type": "OTHER",
+        "properties": [],
+        "inputs": [],
+        "outputs": [
+            {
+                "name": "output_price",
+                "desc": "price",
+                "_clazz": "OutputJson"
+            }
+        ],
+        "_clazz": "AssetJson"
+    },
+    {
+        "name": "Onbalans Markt",
+        "desc": "Onbalans Markt",
+        "icon_type": "OTHER",
+        "properties": [],
+        "inputs": [],
+        "outputs": [
+            {
+                "name": "output_excess_price",
+                "desc": "excess_price",
+                "_clazz": "OutputJson"
+            },
+            {
+                "name": "output_shortage_price",
+                "desc": "shortage_price",
+                "_clazz": "OutputJson"
+            }
+        ],
+        "_clazz": "AssetJson"
+    },
+    {
+        "name": "EMMA PLC",
+        "desc": "EMMA PLC",
+        "icon_type": "OTHER",
+        "properties": [
+            {
+                "name": "battery_min_capacity_in_kwh",
+                "desc": "battery_min_capacity_in_kwh",
+                "value": 82,
+                "editable": false,
+                "_clazz": "PropJson"
+            },
+            {
+                "name": "dead_band",
+                "desc": "dead_band",
+                "value": 50,
+                "editable": false,
+                "_clazz": "PropJson"
+            },
+            {
+                "name": "solar_max_kw",
+                "desc": "solar_max_kw",
+                "value": 388,
+                "editable": false,
+                "_clazz": "PropJson"
+            },
+            {
+                "name": "battery_max_charge_kw",
+                "desc": "battery_max_charge_kw",
+                "value": 500,
+                "editable": false,
+                "_clazz": "PropJson"
+            },
+            {
+                "name": "battery_max_discharge_kw",
+                "desc": "battery_max_discharge_kw",
+                "value": 500,
+                "editable": false,
+                "_clazz": "PropJson"
+            },
+            {
+                "name": "operational_mode",
+                "desc": "operational_mode",
+                "value": "EPEX_IMBALANCE",
+                "editable": false,
+                "_clazz": "PropJson"
+            },
+            {
+                "name": "battery_size_kwh",
+                "desc": "battery_size_kwh",
+                "value": 820,
+                "editable": false,
+                "_clazz": "PropJson"
+            },
+            {
+                "name": "max_allowed_grid_power",
+                "desc": "max_allowed_grid_power",
+                "value": 4160,
+                "editable": false,
+                "_clazz": "PropJson"
+            },
+            {
+                "name": "battery_target_level",
+                "desc": "battery_target_level",
+                "value": 0,
+                "editable": false,
+                "_clazz": "PropJson"
+            }
+        ],
+        "inputs": [],
+        "outputs": [
+            {
+                "name": "input_grid_connection",
+                "desc": "grid_connection",
+                "_clazz": "InputJson"
+            },
+            {
+                "name": "input_ev",
+                "desc": "ev",
+                "_clazz": "InputJson"
+            },
+            {
+                "name": "input_solar",
+                "desc": "solar",
+                "_clazz": "InputJson"
+            },
+            {
+                "name": "input_office",
+                "desc": "office",
+                "_clazz": "InputJson"
+            },
+            {
+                "name": "input_battery_power",
+                "desc": "battery_power",
+                "_clazz": "InputJson"
+            },
+            {
+                "name": "input_battery_level",
+                "desc": "battery_level",
+                "_clazz": "InputJson"
+            },
+            {
+                "name": "input_epex",
+                "desc": "epex",
+                "_clazz": "InputJson"
+            },
+            {
+                "name": "input_imbalance_excess",
+                "desc": "imbalance_excess",
+                "_clazz": "InputJson"
+            },
+            {
+                "name": "input_imbalance_shortage",
+                "desc": "imbalance_shortage",
+                "_clazz": "InputJson"
+            },
+            {
+                "name": "output_solar_power_setpoint",
+                "desc": "solar_power_setpoint",
+                "_clazz": "OutputJson"
+            },
+            {
+                "name": "output_battery_setpoint",
+                "desc": "battery_setpoint",
+                "_clazz": "OutputJson"
+            },
+            {
+                "name": "output_ev_cluster_setpoint",
+                "desc": "ev_cluster_setpoint",
+                "_clazz": "OutputJson"
+            }
+        ],
+        "_clazz": "AssetJson"
+    },
+    {
+        "name": "Laadpalen OK1",
+        "desc": "Laadpalen OK1",
+        "icon_type": "OTHER",
+        "properties": [
+            {
+                "name": "nr_of_poles",
+                "desc": "nr_of_poles",
+                "value": 30,
+                "editable": false,
+                "_clazz": "PropJson"
+            },
+            {
+                "name": "rated_power",
+                "desc": "rated_power",
+                "value": 11,
+                "editable": false,
+                "_clazz": "PropJson"
+            }
+        ],
+        "inputs": [],
+        "outputs": [
+            {
+                "name": "input_curtailment",
+                "desc": "curtailment",
+                "_clazz": "InputJson"
+            },
+            {
+                "name": "output_power",
+                "desc": "power",
+                "_clazz": "OutputJson"
+            }
+        ],
+        "_clazz": "AssetJson"
+    },
+    {
+        "name": "Zonnepanelen Oost",
+        "desc": "Zonnepanelen Oost",
+        "icon_type": "OTHER",
+        "properties": [
+            {
+                "name": "tilt_angle",
+                "desc": "tilt_angle",
+                "value": 15,
+                "editable": false,
+                "_clazz": "PropJson"
+            },
+            {
+                "name": "orientation",
+                "desc": "orientation",
+                "value": 106,
+                "editable": false,
+                "_clazz": "PropJson"
+            },
+            {
+                "name": "max_power",
+                "desc": "max_power",
+                "value": 194,
+                "editable": false,
+                "_clazz": "PropJson"
+            },
+            {
+                "name": "latitude",
+                "desc": "latitude",
+                "value": 52.16462,
+                "editable": false,
+                "_clazz": "PropJson"
+            },
+            {
+                "name": "longitude",
+                "desc": "longitude",
+                "value": 5.36222,
+                "editable": false,
+                "_clazz": "PropJson"
+            },
+            {
+                "name": "altitude",
+                "desc": "altitude",
+                "value": 0,
+                "editable": false,
+                "_clazz": "PropJson"
+            }
+        ],
+        "inputs": [],
+        "outputs": [
+            {
+                "name": "input_radiation",
+                "desc": "radiation",
+                "_clazz": "InputJson"
+            },
+            {
+                "name": "output_power",
+                "desc": "power",
+                "_clazz": "OutputJson"
+            },
+            {
+                "name": "input_power_curtailment",
+                "desc": "power_curtailment",
+                "_clazz": "InputJson"
+            }
+        ],
+        "_clazz": "AssetJson"
+    },
+    {
+        "name": "Zonnepanelen West",
+        "desc": "Zonnepanelen West",
+        "icon_type": "OTHER",
+        "properties": [
+            {
+                "name": "tilt_angle",
+                "desc": "tilt_angle",
+                "value": 15,
+                "editable": false,
+                "_clazz": "PropJson"
+            },
+            {
+                "name": "orientation",
+                "desc": "orientation",
+                "value": 286,
+                "editable": false,
+                "_clazz": "PropJson"
+            },
+            {
+                "name": "max_power",
+                "desc": "max_power",
+                "value": 194,
+                "editable": false,
+                "_clazz": "PropJson"
+            },
+            {
+                "name": "latitude",
+                "desc": "latitude",
+                "value": 52.16462,
+                "editable": false,
+                "_clazz": "PropJson"
+            },
+            {
+                "name": "longitude",
+                "desc": "longitude",
+                "value": 5.36222,
+                "editable": false,
+                "_clazz": "PropJson"
+            },
+            {
+                "name": "altitude",
+                "desc": "altitude",
+                "value": 0,
+                "editable": false,
+                "_clazz": "PropJson"
+            }
+        ],
+        "inputs": [],
+        "outputs": [
+            {
+                "name": "input_radiation",
+                "desc": "radiation",
+                "_clazz": "InputJson"
+            },
+            {
+                "name": "output_power",
+                "desc": "power",
+                "_clazz": "OutputJson"
+            },
+            {
+                "name": "input_power_curtailment",
+                "desc": "power_curtailment",
+                "_clazz": "InputJson"
+            }
+        ],
+        "_clazz": "AssetJson"
+    },
+    {
+        "name": "Zonnepanelen",
+        "desc": "Zonnepanelen",
+        "icon_type": "OTHER",
+        "properties": [],
+        "inputs": [],
+        "outputs": [
+            {
+                "name": "input_ports",
+                "desc": "ports",
+                "_clazz": "InputJson"
+            },
+            {
+                "name": "output_power",
+                "desc": "power",
+                "_clazz": "OutputJson"
+            }
+        ],
+        "_clazz": "AssetJson"
+    },
+    {
+        "name": "Batterij",
+        "desc": "Batterij",
+        "icon_type": "OTHER",
+        "properties": [
+            {
+                "name": "capacity",
+                "desc": "capacity",
+                "value": 820,
+                "editable": true,
+                "_clazz": "PropJson"
+            },
+            {
+                "name": "max_charge_power",
+                "desc": "max_charge_power",
+                "value": 500,
+                "editable": false,
+                "_clazz": "PropJson"
+            },
+            {
+                "name": "max_discharge_power",
+                "desc": "max_discharge_power",
+                "value": 500,
+                "editable": false,
+                "_clazz": "PropJson"
+            },
+            {
+                "name": "starting_level",
+                "desc": "starting_level",
+                "value": 410,
+                "editable": true,
+                "_clazz": "PropJson"
+            },
+            {
+                "name": "min_capacity",
+                "desc": "min_capacity",
+                "value": 82,
+                "editable": true,
+                "_clazz": "PropJson"
+            },
+            {
+                "name": "efficiency_charging",
+                "desc": "efficiency_charging",
+                "value": 0.98,
+                "editable": true,
+                "_clazz": "PropJson"
+            },
+            {
+                "name": "efficiency_discharging",
+                "desc": "efficiency_discharging",
+                "value": 0.98,
+                "editable": true,
+                "_clazz": "PropJson"
+            },
+            {
+                "name": "self_discharge_per_year",
+                "desc": "self_discharge_per_year",
+                "value": 0.48,
+                "editable": false,
+                "_clazz": "PropJson"
+            },
+            {
+                "name": "max_life_cycles",
+                "desc": "max_life_cycles",
+                "value": 8000,
+                "editable": false,
+                "_clazz": "PropJson"
+            }
+        ],
+        "inputs": [],
+        "outputs": [
+            {
+                "name": "input_power_setpoint",
+                "desc": "power_setpoint",
+                "_clazz": "InputJson"
+            },
+            {
+                "name": "output_power",
+                "desc": "power",
+                "_clazz": "OutputJson"
+            },
+            {
+                "name": "output_level",
+                "desc": "level",
+                "_clazz": "OutputJson"
+            }
+        ],
+        "_clazz": "AssetJson"
+    },
+    {
+        "name": "netaansluiting",
+        "desc": "netaansluiting",
+        "icon_type": "OTHER",
+        "properties": [],
+        "inputs": [],
+        "outputs": [
+            {
+                "name": "input_ports",
+                "desc": "ports",
+                "_clazz": "InputJson"
+            },
+            {
+                "name": "output_power",
+                "desc": "power",
+                "_clazz": "OutputJson"
+            }
+        ],
+        "_clazz": "AssetJson"
+    }
+]
+
+}

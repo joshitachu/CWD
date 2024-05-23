@@ -1,0 +1,78 @@
+@page "/winstMarge"
+@inject SimulationDataService SimulationDataService
+@inject AssetService AssetService
+@rendermode InteractiveServer
+
+
+
+@if (SimulationDataService.IsLoading)
+{
+    <div class="loading-spinner-container">
+        <div class="loading-spinner">
+            <div class="spinner"></div>
+        </div>
+    </div>
+}
+else if (SimulationDataService.DecodedHtml != null)
+{
+    <div>
+        @((MarkupString)SimulationDataService.DecodedHtml)
+    </div>
+}
+else
+{
+    <p>Geen data beschikbaar? Run de simulatie om de Grootverbruik te bekijken</p>
+    <button @onclick="GetData">Run simulatie</button>
+}
+
+<style>
+    body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f8f9fa;
+        color: #333;
+    }
+    .container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+    }
+
+
+
+
+    .decoded-html-container {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        background-color: #fff;
+        color: #333;
+        font-size: 16px;
+        line-height: 1.6;
+    }
+    
+
+</style>
+
+@code{
+    private async Task GetData()
+    {
+        if (SimulationDataService.IsLoading)
+        {
+            return;
+        }
+
+        var bigData = await SimulationDataService.GetSimulationDataAsync();
+            if (bigData != null)
+            {
+                // No need to set DecodedHtml directly here, it's already set in GetSimulationDataAsync
+                StateHasChanged();
+            }
+            StateHasChanged();
+    }
+
+}

@@ -1,0 +1,20 @@
+digraph{
+    "EMMA PLC" [shape=box];
+    "Buitentemperatuur" [shape=box];
+    "Zoninstraling" [shape=box];
+    "Kantoren Elektra" [shape=box];
+    "Kantoren Warmte" [shape=box];
+    "Warmtepomp1" [shape=box];
+    "Warmtepomp2" [shape=box];
+    "Warmtepomp3" [shape=box];
+    "E-ketel-1" [shape=box];
+    "E-ketel-2" [shape=box];
+    "E-ketel-3" [shape=box];
+    "Warmte productie" [shape=box];
+    "Laadpalen OK1" [shape=box];
+    "Laadpalen OK3" [shape=box];
+    "Laadpalen OK4" [shape=box];
+    "laskast1" [shape=box];
+    "laskast3" [shape=box];
+    "netaansluiting" [shape=box];
+}

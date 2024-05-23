@@ -55,10 +55,9 @@
     {
         <div class="popup-container">
             <div class="popup">
-                <label for="propertyName">@editedProperty.name:</label>
-                <br><br>
-                <label for="propertyValue">Property Value:</label>
-                <input type="text" id="propertyValue" @oninput="UpdatePropertyValue">
+                <b><p>*Om data te wijzigen moet de simulatie eerst beëindigd worden*</p></b>
+                <label for="propertyValue">@editedProperty.name:</label>
+                <input type="text" id="propertyValue" @bind="PropertyValue">
                 <br><br>
                 <button @onclick="SaveChanges">Save Changes</button>
                 <button @onclick="ClosePopup">Cancel</button>
@@ -83,7 +82,7 @@
         }
     </table>
 
-    <button @onclick="GetData">Run Simulatie</button>
+    <button @onclick="GetData">Run Simulation</button>
 
     @if (Istrue)
     {
@@ -97,12 +96,15 @@
         }
         else if (bigData != null)
         {
+            <button @onclick="endSim">End simulation</button>
             @foreach (var chartData in chartDataList)
             {
                 <PlotlyChart @ref="chart" @bind-Config="chartData.Config" @bind-Layout="chartData.Layout" @bind-Data="chartData.Data" />
+            
             }
             <button @onclick="DownloadCSV">Download data as CSV</button>
-            <button @onclick="endSim">End simulation</button>
+            
+            
         }
     }
 }
@@ -113,11 +115,13 @@ else
 }
 
 @code {
-    public string simText = "Run Simulatie";
+    public string simText = "Run Simulation";
     List<Propertyy> editedProperties = new List<Propertyy>();
 
     public string PropertyValue;
     HttpClient httpClient = new HttpClient();
+    public string DecodedHtml { get; private set; }
+
     public bool showPopup;
     public Propertyy editedProperty;
     string editedPropertyName;
@@ -125,7 +129,7 @@ else
     private string changedValue;
     private bool EditState;
     public string unit;
-    public List<AssetStateHistory> bigData;
+     private List<AssetStateHistory> bigData;
     public string noData;
     public string StartTime;
     public string endTime;
@@ -133,6 +137,7 @@ else
     public Boolean Istrue = true;
     public double list;
     private PlotlyChart? chart;
+
     private List<ChartData> chartDataList = new List<ChartData>();
 
     protected override async Task OnInitializedAsync()
@@ -192,6 +197,7 @@ else
                             {
                                 yValues.Add(value);
                             }
+                            unit = recorded.unit;
 
                             List<object> xValuesObjects = xValues.Select(x => (object)x).ToList();
                             var scatter = new Scatter
@@ -282,6 +288,7 @@ else
             endTime = "2023-01-02T00:00:00";
             await PrepareChartData();
             Istrue = true;
+            @* DecodedHtml = SimulationDataService.DecodeBase64(responseObj.result_table_base64); *@
             StateHasChanged();
         }
     }
@@ -316,6 +323,7 @@ else
         ClosePopup();
     }
 
+
     public async void RunUpdated()
     {
         if (editedProperty != null)
@@ -347,7 +355,7 @@ else
             this.endTime = payload.runner_update.end;
             this.StartTime = payload.runner_update.start;
 
-            var upirl = "http://35.159.80.93:5000/run_simulation";
+            var upirl = "http://3.72.197.240:5001/run_simulation";
             var token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiY29fbWFrZXIifQ.NQYYS882LhzIyx7CrynwbRub8cf-6ic7KvGwyk77WC8";
             httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
 
@@ -356,9 +364,15 @@ else
             if (responseMessage != null)
             {
                 var json = await responseMessage.Content.ReadAsStringAsync();
-                bigData = Newtonsoft.Json.JsonConvert.DeserializeObject<List<AssetStateHistory>>(json);
+                var responseObj = Newtonsoft.Json.JsonConvert.DeserializeObject<RunSimulationEndpointResponse>(json);
+                     if (responseObj != null)
+                {
+                    bigData = responseObj.asset_history;
+                }
+
                 await PrepareChartData();
                 Istrue = true;
+                DecodedHtml = SimulationDataService.DecodeBase64(responseObj.result_table_base64);
                 StateHasChanged();
             }
         }
