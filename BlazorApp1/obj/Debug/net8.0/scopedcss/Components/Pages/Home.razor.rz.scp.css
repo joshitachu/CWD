@@ -1,0 +1,111 @@
+body[b-qq7g8le84l] {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Make sure the body extends to at least the height of the viewport */
+}
+
+header[b-qq7g8le84l] {
+    background-color: #fff;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#logo[b-qq7g8le84l] {
+    height: 50px; /* Adjust as needed */
+}
+
+nav a[b-qq7g8le84l] {
+    margin-right: 20px;
+    text-decoration: none;
+    color: #333;
+}
+
+#loginButton[b-qq7g8le84l] {
+    background-color: #800080;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+.main[b-qq7g8le84l] {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding: 20px;
+}
+
+.service[b-qq7g8le84l] {
+    background: #fff; /* or any color you want for the service box */
+    margin: 10px;
+    margin-bottom: 40px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* subtle shadow instead of border */
+    padding: 40px 40px; /* adjust padding as needed */
+    text-align: center;
+    width: calc(33.333% - 20px); /* adjust the width as per number of items per row */
+    transition: transform 0.3s ease;
+}
+
+.service:hover[b-qq7g8le84l] {
+    transform: translateY(-5px); /* subtle hover effect */
+}
+
+.service h2[b-qq7g8le84l] {
+    margin-top: 0.5em; /* space above the title */
+    margin-bottom: 0.5em; /* space below the title */
+}
+
+.service p[b-qq7g8le84l] {
+    font-size: 0.9em; /* smaller font size for the paragraph */
+}
+
+/* Adjustments for responsiveness */
+@media (max-width: 768px) {
+    .service[b-qq7g8le84l] {
+        width: calc(50% - 20px); /* two items per row */
+    }
+}
+
+@media (max-width: 480px) {
+    .service[b-qq7g8le84l] {
+        width: 100%; /* full width on smaller screens */
+    }
+}
+
+
+/* You will need to add the correct icons and additional styling as needed. */
+.icon-support[b-qq7g8le84l], .icon-sales[b-qq7g8le84l], .icon-onboarding[b-qq7g8le84l], .icon-product[b-qq7g8le84l], .icon-quality[b-qq7g8le84l], .icon-result[b-qq7g8le84l] {
+    height: 10px;
+    margin-bottom: 20px;
+    /* Add background images for icons here */
+}
+
+/* Add responsive styling as needed */
+
+
+
+#intro h1[b-qq7g8le84l] {
+    color: #333;
+}
+
+#intro p[b-qq7g8le84l] {
+    color: #555;
+}
+
+#learnMoreButton[b-qq7g8le84l] {
+    background-color: #800080;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+
+
