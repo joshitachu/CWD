@@ -54,10 +54,6 @@
               "target": "Package",
               "version": "[6.0.0, )"
             },
-            "Microsoft.AspNetCore.Components.QuickGrid": {
-              "target": "Package",
-              "version": "[8.0.2, )"
-            },
             "Microsoft.Extensions.Hosting.WindowsServices": {
               "target": "Package",
               "version": "[8.0.0, )"
@@ -90,12 +86,6 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "downloadDependencies": [
-            {
-              "name": "Microsoft.NETCore.App.Host.win-x64",
-              "version": "[8.0.1, 8.0.1]"
-            }
-          ],
           "frameworkReferences": {
             "Microsoft.AspNetCore.App": {
               "privateAssets": "none"
@@ -105,11 +95,6 @@
             }
           },
           "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/8.0.101/PortableRuntimeIdentifierGraph.json"
-        }
-      },
-      "runtimes": {
-        "win-x64": {
-          "#import": []
         }
       }
     }

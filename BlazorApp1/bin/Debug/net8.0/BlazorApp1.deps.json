@@ -12,7 +12,6 @@
           "BlazorDownloadFile": "2.4.0.2",
           "CsvHelper": "32.0.1",
           "Microsoft.AspNet.WebApi.Client": "6.0.0",
-          "Microsoft.AspNetCore.Components.QuickGrid": "8.0.2",
           "Microsoft.Extensions.Hosting.WindowsServices": "8.0.0",
           "Newtonsoft.Json": "13.0.3",
           "PDFsharp": "6.0.0",
@@ -187,17 +186,6 @@
           "lib/net8.0/Microsoft.AspNetCore.Components.Forms.dll": {
             "assemblyVersion": "8.0.0.0",
             "fileVersion": "8.0.424.17014"
-          }
-        }
-      },
-      "Microsoft.AspNetCore.Components.QuickGrid/8.0.2": {
-        "dependencies": {
-          "Microsoft.AspNetCore.Components.Web": "8.0.4"
-        },
-        "runtime": {
-          "lib/net8.0/Microsoft.AspNetCore.Components.QuickGrid.dll": {
-            "assemblyVersion": "8.0.2.0",
-            "fileVersion": "8.0.224.6804"
           }
         }
       },
@@ -745,13 +733,6 @@
       "sha512": "sha512-I/kttR/nmRZTc+bsetYnvbkVzHgsJXrWKxHo30vGvQV+dTeur9LV2g2TvyLerpWL9OFbNWgpTGBUwgX1IW/0Zw==",
       "path": "microsoft.aspnetcore.components.forms/8.0.4",
       "hashPath": "microsoft.aspnetcore.components.forms.8.0.4.nupkg.sha512"
-    },
-    "Microsoft.AspNetCore.Components.QuickGrid/8.0.2": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-OppS7ZLEwgdScK7klYuD5lY0CojwlHRXSGTvaQnTDcktlLK1vPV+Tw2ZHpLl9B1Yh8SSSL+mkRm1eFjNsL3ccQ==",
-      "path": "microsoft.aspnetcore.components.quickgrid/8.0.2",
-      "hashPath": "microsoft.aspnetcore.components.quickgrid.8.0.2.nupkg.sha512"
     },
     "Microsoft.AspNetCore.Components.Web/8.0.4": {
       "type": "package",
